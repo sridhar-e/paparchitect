@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Dialog } from "@base-ui/react/dialog";
@@ -55,6 +55,7 @@ export function ProjectDialog({
 function ProjectDialogBody({ project }: { project: Project }) {
   const images = project.images?.length ? project.images : [project.image];
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   const details = [
     { label: "Category", value: project.category },
@@ -69,10 +70,27 @@ function ProjectDialogBody({ project }: { project: Project }) {
   const subtitle = [project.location, project.size].filter(Boolean).join(" · ");
   const go = (next: number) => setIndex((next + images.length) % images.length);
 
+  // Auto-advance the gallery; pauses on hover and for reduced-motion users.
+  useEffect(() => {
+    if (images.length < 2 || paused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = setTimeout(
+      () => setIndex((i) => (i + 1) % images.length),
+      4000
+    );
+    return () => clearTimeout(timer);
+  }, [index, images.length, paused]);
+
   return (
     <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
       {/* Left: main image with thumbnails below */}
-      <div className="group/gallery bg-brand-cream p-4 sm:p-5">
+      <div
+        className="group/gallery bg-brand-cream p-4 sm:p-5"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+      >
         <div className="relative aspect-[4/3] overflow-hidden bg-brand-navy/5">
           <div
             className="flex h-full motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"

@@ -1,6 +1,6 @@
 export type ProjectCategory =
-  | "Sports Facilities"
-  | "Industries"
+  | "Sports"
+  | "Industrial"
   | "Process Plants"
   | "Transportation"
   | "Private Residences"
@@ -145,31 +145,31 @@ function slugify(s: string) {
 }
 
 const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[] = [
-  // Sports Facilities
-  { title: "MAC stadium", location: "Chennai, Tamil Nadu", size: "Capacity 45,000", category: "Sports Facilities", featured: true },
-  { title: "Volleyball stadium", location: "Chennai", category: "Sports Facilities" },
-  { title: "CMDA – Parks and Playground - Kannigapuram", location: "Chennai, Tamil Nadu", category: "Sports Facilities" },
-  { title: "CMDA – Parks and Playground - Shenoy nagar", location: "Chennai, Tamil Nadu", category: "Sports Facilities" },
-  { title: "NIT Calicut — Indoor Stadium / Gymkhana", category: "Sports Facilities" },
+  // Sports
+  { title: "MAC stadium", location: "Chennai, Tamil Nadu", size: "Capacity 45,000", category: "Sports", featured: true },
+  { title: "Volleyball stadium", location: "Chennai", category: "Sports" },
+  { title: "CMDA – Parks and Playground - Kannigapuram", location: "Chennai, Tamil Nadu", category: "Sports" },
+  { title: "CMDA – Parks and Playground - Shenoy nagar", location: "Chennai, Tamil Nadu", category: "Sports" },
+  { title: "NIT Calicut — Indoor Stadium / Gymkhana", category: "Sports" },
 
-  // Industries
-  { title: "Cheyyar SEZ Developers", location: "Krishnagiri, Tamil Nadu", size: "14,50,000 sq ft", category: "Industries" },
-  { title: "Cheyyar SEZ Developers", location: "Cheyyar, Tamil Nadu", size: "12,50,000 sq ft", category: "Industries" },
-  { title: "BOSCH", location: "Bengaluru, Karnataka", size: "5 acres", siteArea: "5 acres", builtUpArea: "1,92,000 sq m", status: "Completed", year: "1999 / 2021", description: "An integrated facility comprising vehicle monitoring, oil and gas storage, car parking, office spaces, and conference facilities.", category: "Industries", images: [img.bosch1, img.bosch2, img.bosch3] },
-  { title: "CDCI - Master Plan", location: "Bengaluru, Karnataka", size: "70.1 acres", siteArea: "70.1 acres (2,83,670.90 sq m)", status: "Ongoing", year: "2018", category: "Industries", images: [img.cdci1, img.cdci2, img.cdci3] },
-  { title: "FRCCI - Freudenberg Regional Corporate Centre India Private Limited", location: "Morinda, Punjab", size: "25 acres", siteArea: "25.00 acres (1,01,171.40 sq m)", builtUpArea: "45,540.71 sq m", status: "Completed", year: "2022–2024", description: "An integrated, self-sufficient manufacturing campus for Vibracoustic India and Freudenberg NOK India, featuring optimized infrastructure, efficient logistics, dedicated utilities, traffic management, and future-ready expansion planning across a 1,04,737.70 sq m site.", category: "Industries", images: [img.frcci1, img.frcci2, img.frcci3] },
-  { title: "FNI NOK", location: "Chennai, Tamil Nadu", size: "14.05 acres", siteArea: "14.05 acres (56,858.33 sq m)", builtUpArea: "14,958.33 sq m", status: "Completed", year: "2018–2019", category: "Industries", images: [img.fni] },
-  { title: "TEMICO Motors India Private Limited", location: "Bengaluru, Karnataka", size: "4.56 acres", siteArea: "4.56 acres (18,471.77 sq m)", builtUpArea: "5,791.03 sq m", status: "Completed", year: "2023", category: "Industries", images: [img.temico1, img.temico2, img.temico3] },
-  { title: "AMANN SEWING & Embroidery Threads Private Limited", location: "Ranipet, Tamil Nadu", size: "12 acres", siteArea: "12 acres", builtUpArea: "5,791.03 sq m", status: "Completed", year: "2025", description: "An integrated 800-tonnes-per-year sewing thread manufacturing facility serving apparel, automotive, footwear, and leather industries, with end-to-end production, advanced utilities including ZLD, efficient logistics, administrative spaces, and comprehensive employee welfare facilities.", category: "Industries", images: [img.amman1, img.amman2, img.amman3] },
-  { title: "Nsure Pilot", location: "Bengaluru, Karnataka", size: "5.2 acres", siteArea: "5.2 acres (22,156.20 sq m)", builtUpArea: "11,036.70 sq m", status: "Ongoing", year: "2023 – Ongoing", description: "Nsure is conceived as a future-ready clean energy manufacturing campus, marking RCCL Group's diversification into advanced energy technologies, including lithium-ion cells, advanced chemistries, and fuel cells. The five-block facility combines PEB structures for the pilot plant and warehouse with RCC buildings for administration and accommodation, creating an efficient and scalable industrial environment.", category: "Industries", images: [img.nsurePilot1, img.nsurePilot2] },
-  { title: "Nsure Giga Plant", location: "Bengaluru, Karnataka", size: "50 acres", status: "Ongoing", description: "The giga plant developed across a 50-acre site, integrating comprehensive manufacturing and processing operations with stores, formation buildings, utilities, toilet blocks, and MEP-support infrastructure. The facility is designed as a scalable industrial ecosystem, with provision for future expansion through six additional plants within the larger industrial development.", category: "Industries", images: [img.nsureGiga1, img.nsureGiga2, img.nsureGiga3, img.nsureGiga4] },
-  { title: "ZF Wind Power Private Limited", location: "Coimbatore, Tamil Nadu", size: "11,753.18 sq m built-up", builtUpArea: "11,753.18 sq m", status: "Completed", year: "2024", description: "A sustainable brownfield industrial development integrating a three-storey RCC office and dining block with a PEB production facility, featuring high-stack storage, temperature-controlled production, paint shop, solar-ready roofing, green building principles, and provision for future expansion.", category: "Industries" },
-  { title: "Fairway Enterprises Private Ltd - FA 1 and FA 2", location: "Bargur, Tamil Nadu", size: "146.72 acres", siteArea: "146.72 acres (5,93,754.77 sq m)", builtUpArea: "2,32,680.25 sq m", status: "Completed", year: "2022", description: "A large-scale leather goods manufacturing campus comprising PEB production and warehouse facilities, canteens, and a G+1 RCC main office with a sloped roof, complemented by a G+1 RCC RTC building for guest accommodation. The development integrates industrial, administrative, and support functions within a well-planned campus to support large-scale operations.", category: "Industries", images: [img.fairway1, img.fairway2] },
-  { title: "Ashok Leyland (Ashley Alteams)", location: "Cheyyar, Tamil Nadu", size: "1,78,000 sq ft", category: "Industries" },
-  { title: "Rieter Nittoku", location: "Oragadam", size: "55,000 sq ft", category: "Industries" },
-  { title: "Klueber Industries — Group Development", location: "Mysore", size: "1,40,000 sq ft", category: "Industries" },
-  { title: "Hwaseung", location: "Sriperumbudur, Tamil Nadu", size: "55,000 sq ft", category: "Industries" },
-  { title: "OMFED", location: "Govindpur, Odisha", size: "8 acres", siteArea: "8 acres (32,000 sq m)", builtUpArea: "21,138.93 sq m", status: "Completed", year: "2021", description: "A state-of-the-art automated dairy processing facility with a capacity of 5 lakh litres per day, designed for efficient production of milk powder, cheese, paneer, butter, and other value-added dairy products. The facility integrates advanced processing technology, hygienic planning, and streamlined production workflows.", category: "Industries", images: [img.omfed1, img.omfed2, img.omfed3, img.omfed4] },
+  // Industrial
+  { title: "Cheyyar SEZ Developers", location: "Krishnagiri, Tamil Nadu", size: "14,50,000 sq ft", category: "Industrial" },
+  { title: "Cheyyar SEZ Developers", location: "Cheyyar, Tamil Nadu", size: "12,50,000 sq ft", category: "Industrial" },
+  { title: "BOSCH", location: "Bengaluru, Karnataka", size: "5 acres", siteArea: "5 acres", builtUpArea: "1,92,000 sq m", status: "Completed", year: "1999 / 2021", description: "An integrated facility comprising vehicle monitoring, oil and gas storage, car parking, office spaces, and conference facilities.", category: "Industrial", images: [img.bosch1, img.bosch2, img.bosch3] },
+  { title: "CDCI - Master Plan", location: "Bengaluru, Karnataka", size: "70.1 acres", siteArea: "70.1 acres (2,83,670.90 sq m)", status: "Ongoing", year: "2018", category: "Industrial", images: [img.cdci1, img.cdci2, img.cdci3] },
+  { title: "FRCCI - Freudenberg Regional Corporate Centre India Private Limited", location: "Morinda, Punjab", size: "25 acres", siteArea: "25.00 acres (1,01,171.40 sq m)", builtUpArea: "45,540.71 sq m", status: "Completed", year: "2022–2024", description: "An integrated, self-sufficient manufacturing campus for Vibracoustic India and Freudenberg NOK India, featuring optimized infrastructure, efficient logistics, dedicated utilities, traffic management, and future-ready expansion planning across a 1,04,737.70 sq m site.", category: "Industrial", images: [img.frcci1, img.frcci2, img.frcci3] },
+  { title: "FNI NOK", location: "Chennai, Tamil Nadu", size: "14.05 acres", siteArea: "14.05 acres (56,858.33 sq m)", builtUpArea: "14,958.33 sq m", status: "Completed", year: "2018–2019", category: "Industrial", images: [img.fni] },
+  { title: "TEMICO Motors India Private Limited", location: "Bengaluru, Karnataka", size: "4.56 acres", siteArea: "4.56 acres (18,471.77 sq m)", builtUpArea: "5,791.03 sq m", status: "Completed", year: "2023", category: "Industrial", images: [img.temico1, img.temico2, img.temico3] },
+  { title: "AMANN SEWING & Embroidery Threads Private Limited", location: "Ranipet, Tamil Nadu", size: "12 acres", siteArea: "12 acres (1,26,000 sq m)", builtUpArea: "5,791.03 sq m", status: "Completed", year: "2025", description: "An integrated 800-tonnes-per-year sewing thread manufacturing facility serving apparel, automotive, footwear, and leather industries, with end-to-end production, advanced utilities including ZLD, efficient logistics, administrative spaces, and comprehensive employee welfare facilities.", category: "Industrial", images: [img.amman1, img.amman2, img.amman3] },
+  { title: "Nsure Pilot", location: "Bengaluru, Karnataka", size: "5.2 acres", siteArea: "5.2 acres (22,156.20 sq m)", builtUpArea: "11,036.70 sq m", status: "Ongoing", year: "2023 – Ongoing", description: "Nsure is conceived as a future-ready clean energy manufacturing campus, marking RCCL Group's diversification into advanced energy technologies, including lithium-ion cells, advanced chemistries, and fuel cells. The five-block facility combines PEB structures for the pilot plant and warehouse with RCC buildings for administration and accommodation, creating an efficient and scalable industrial environment.", category: "Industrial", images: [img.nsurePilot1, img.nsurePilot2] },
+  { title: "Nsure Giga Plant", location: "Bengaluru, Karnataka", size: "50 acres", status: "Ongoing", description: "The giga plant developed across a 50-acre site, integrating comprehensive manufacturing and processing operations with stores, formation buildings, utilities, toilet blocks, and MEP-support infrastructure. The facility is designed as a scalable industrial ecosystem, with provision for future expansion through six additional plants within the larger industrial development.", category: "Industrial", images: [img.nsureGiga1, img.nsureGiga2, img.nsureGiga3, img.nsureGiga4] },
+  { title: "ZF Wind Power Private Limited", location: "Coimbatore, Tamil Nadu", size: "11,753.18 sq m built-up", builtUpArea: "11,753.18 sq m", status: "Completed", year: "2024", description: "A sustainable brownfield industrial development integrating a three-storey RCC office and dining block with a PEB production facility, featuring high-stack storage, temperature-controlled production, paint shop, solar-ready roofing, green building principles, and provision for future expansion.", category: "Industrial" },
+  { title: "Fairway Enterprises Private Ltd - FA 1 and FA 2", location: "Bargur, Tamil Nadu", size: "146.72 acres", siteArea: "146.72 acres (5,93,754.77 sq m)", builtUpArea: "2,32,680.25 sq m", status: "Completed", year: "2022", description: "A large-scale leather goods manufacturing campus comprising PEB production and warehouse facilities, canteens, and a G+1 RCC main office with a sloped roof, complemented by a G+1 RCC RTC building for guest accommodation. The development integrates industrial, administrative, and support functions within a well-planned campus to support large-scale operations.", category: "Industrial", images: [img.fairway1, img.fairway2] },
+  { title: "Ashok Leyland (Ashley Alteams)", location: "Cheyyar, Tamil Nadu", size: "1,78,000 sq ft", category: "Industrial" },
+  { title: "Rieter Nittoku", location: "Oragadam", size: "55,000 sq ft", category: "Industrial" },
+  { title: "Klueber Industries — Group Development", location: "Mysore", size: "1,40,000 sq ft", category: "Industrial" },
+  { title: "Hwaseung", location: "Sriperumbudur, Tamil Nadu", size: "55,000 sq ft", category: "Industrial" },
+  { title: "OMFED", location: "Govindpur, Odisha", size: "8 acres", siteArea: "8 acres (32,000 sq m)", builtUpArea: "21,138.93 sq m", status: "Completed", year: "2021", description: "A state-of-the-art automated dairy processing facility with a capacity of 5 lakh litres per day, designed for efficient production of milk powder, cheese, paneer, butter, and other value-added dairy products. The facility integrates advanced processing technology, hygienic planning, and streamlined production workflows.", category: "Industrial", images: [img.omfed1, img.omfed2, img.omfed3, img.omfed4] },
 
   // Process Plants
   { title: "Bio Security Lab — Ministry of Agriculture & Animal Husbandry", location: "Bengaluru", category: "Process Plants" },
@@ -193,7 +193,7 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
   { title: "The Alton for Appaswamy Real Estate", location: "Coimbatore, Tamil Nadu", status: "Completed", year: "2023", description: "A Stilt + 4-storey residential development comprising 12 apartments, with 8 units of 3BHK and 4 units of 2BHK, planned for efficient residential circulation and optimized space utilization.", category: "Residential" },
   { title: "Township Development", size: "23,00,000 sq ft", category: "Residential" },
   { title: "Rajiv Gandhi Housing Corporation Limited (RGHCL)", location: "Bengaluru, Karnataka", size: "75,000 sq ft", status: "Completed", category: "Residential", images: [img.rghcl1, img.rghcl2] },
-  { title: "Chhattisgarh Housing Board", location: "New Raipur, Chhattisgarh", size: "153.99 acres, 1,832 units", siteArea: "153.99 acres (6,23,175.00 sq m)", builtUpArea: "2,40,848.97 sq m", status: "Completed", year: "2010", description: "A large-scale integrated residential township comprising flatted, plotted, and EWS housing, with Stilt+6 apartment blocks, G+3 EWS blocks, and dedicated community retail through two strategically located malls. The master plan emphasizes diverse housing, efficient zoning, accessibility, and a balanced community-oriented living environment.", category: "Residential", featured: true, images: [img.chhattisgarh] },
+  { title: "Chhattisgarh Housing Board", location: "New Raipur, Chhattisgarh", size: "153.99 acres", siteArea: "153.99 acres (6,23,175.00 sq m)", builtUpArea: "2,40,848.97 sq m", status: "Completed", year: "2010", description: "A large-scale integrated residential township comprising flatted, plotted, and EWS housing, with Stilt+6 apartment blocks, G+3 EWS blocks, and dedicated community retail through two strategically located malls. The master plan emphasizes diverse housing, efficient zoning, accessibility, and a balanced community-oriented living environment.", category: "Residential", featured: true, images: [img.chhattisgarh] },
   { title: "VNC Residence", location: "Alwarpet, Chennai", size: "8,500 sq ft", category: "Residential" },
   { title: "Tamil Nadu Housing Board", location: "Chennai", size: "71,000 sq ft", category: "Residential" },
   { title: "SBI Residential Quarters", location: "Mumbai, Maharashtra", size: "1.246 acres, 126 units", siteArea: "1.246 acres (5,045 sq m)", builtUpArea: "25,028.39 sq m", status: "Ongoing", description: "A 10-storey residential development comprising 126 apartments, with 2BHK and 3BHK units efficiently planned across the upper floors, supported by ground and first-floor parking. The design integrates landscaped outdoor spaces to enhance the residential environment and occupant experience.", category: "Residential", images: [img.sbiQuarters1, img.sbiQuarters2, img.sbiQuarters3] },
@@ -217,7 +217,7 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
   // Commercial & IT buildings
   { title: "Laxmi Cyber City", location: "Hyderabad, Telangana", size: "2.96 acres", siteArea: "2.96 acres (12,005.90 sq m)", builtUpArea: "40,937.82 sq m", status: "Completed", category: "Commercial & IT buildings", featured: true, images: [img.laxmiCyberCity] },
   { title: "Vodafone — Data Center", location: "Chennai", size: "30,000 sq ft", category: "Commercial & IT buildings" },
-  { title: "Freudenberg Klueber Admin Building", location: "Mysore, Karnataka", size: "29,200 sq ft", category: "Commercial & IT buildings", images: [img.klueberAdmin] },
+  { title: "Freudenberg Klueber Admin Building", location: "Mysore, Karnataka", category: "Commercial & IT buildings", images: [img.klueberAdmin] },
   { title: "Infopark Kochi", location: "Kakkanad, Kerala", size: "7.26 acres", siteArea: "7.26 acres (27,518.62 sq m)", builtUpArea: "49,901.03 sq m", status: "Completed", year: "2017", description: "A 10-storey glass-clad IT office building designed with bioclimatic principles, featuring a distinctive boomerang form that maximizes riverfront views and enhances thermal comfort. The campus integrates landscaped waterfront spaces, engineering services, and a 460-car multi-level parking facility for a cohesive and efficient workplace environment.", category: "Commercial & IT buildings", featured: true, images: [img.infopark1, img.infopark2, img.infopark3] },
   { title: "Hexaware — Corporate Campus", category: "Commercial & IT buildings" },
   { title: "Cognizant Technology Solutions — Kochi Campus", category: "Commercial & IT buildings" },
@@ -228,10 +228,10 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
   { title: "SPIC", category: "Commercial & IT buildings", images: [img.spic] },
 
   // Interiors
-  { title: "Cyber Park", location: "Kozhikode, Kerala", category: "Interiors" },
+  { title: "Cyber Park", location: "Kerala", category: "Interiors" },
   { title: "Info Park", location: "Kakkanad, Kerala", category: "Interiors", images: [img.infoParkInteriors1, img.infoParkInteriors2, img.infoParkInteriors3, img.infoParkInteriors4] },
   { title: "Technopark", location: "Kerala", category: "Interiors" },
-  { title: "Grobest", location: "Kozhikode, Kerala", category: "Interiors", images: [img.grobest1, img.grobest2, img.grobest3] },
+  { title: "Grobest", category: "Interiors", images: [img.grobest1, img.grobest2, img.grobest3] },
   { title: "Bosch – Oragadam", location: "Oragadam, Chennai", category: "Interiors", images: [img.boschOragadam1, img.boschOragadam2, img.boschOragadam3] },
   { title: "Yazaki Interior", location: "Bengaluru, Karnataka", size: "0.175 acres", siteArea: "0.175 acres (706.78 sq m)", builtUpArea: "613.76 sq m", status: "Completed", category: "Interiors", images: [img.yazaki1, img.yazaki2, img.yazaki3, img.yazaki4] },
   { title: "Bharat Insurance", location: "Chennai, Tamil Nadu", size: "0.8 acres", siteArea: "0.8 acres (3,236.69 sq m)", builtUpArea: "1,955.82 sq m", status: "Ongoing", category: "Interiors" },
@@ -248,8 +248,8 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
 ];
 
 export const categoryImage: Record<ProjectCategory, string> = {
-  "Sports Facilities": img.sports,
-  Industries: img.industry,
+  "Sports": img.sports,
+  Industrial: img.industry,
   "Process Plants": img.process,
   Transportation: img.transport,
   "Private Residences": img.residence,
@@ -264,8 +264,8 @@ export const categoryImage: Record<ProjectCategory, string> = {
 // falls back to its category image followed by two related sector images.
 // Add an `images` array on a raw entry to override this for that project.
 const categoryGallery: Record<ProjectCategory, string[]> = {
-  "Sports Facilities": [img.sports, img.auditorium, img.institution],
-  Industries: [img.industry, img.process, img.office],
+  "Sports": [img.sports, img.auditorium, img.institution],
+  Industrial: [img.industry, img.process, img.office],
   "Process Plants": [img.process, img.industry, img.transport],
   Transportation: [img.transport, img.industry, img.commercial],
   "Private Residences": [img.residence, img.interiors, img.township],
@@ -290,8 +290,8 @@ export const projects: Project[] = raw.map((p) => {
 export const featuredProjects = projects.filter((p) => p.featured);
 
 export const categories: ProjectCategory[] = [
-  "Sports Facilities",
-  "Industries",
+  "Sports",
+  "Industrial",
   "Process Plants",
   "Transportation",
   "Private Residences",

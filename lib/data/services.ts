@@ -50,8 +50,8 @@ export const specialisations = [
 ] as const;
 
 export const projectSectors = [
-  "Sports Facilities",
-  "Industries",
+  "Sports",
+  "Industrial",
   "Process Plants",
   "Transportation",
   "Private Residences",
