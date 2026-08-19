@@ -2,11 +2,13 @@
 
 import { useMemo, useState } from "react";
 import { ProjectCard } from "@/components/project-card";
+import { ProjectDialog } from "@/components/project-dialog";
 import { cn } from "@/lib/utils";
-import { categories, projects, type ProjectCategory } from "@/lib/data/projects";
+import { categories, projects, type Project, type ProjectCategory } from "@/lib/data/projects";
 
 export function ProjectsExplorer({ initialCategory }: { initialCategory?: ProjectCategory }) {
   const [active, setActive] = useState<ProjectCategory | "All">(initialCategory ?? "All");
+  const [selected, setSelected] = useState<Project | null>(null);
 
   const filtered = useMemo(
     () => (active === "All" ? projects : projects.filter((p) => p.category === active)),
@@ -42,9 +44,19 @@ export function ProjectsExplorer({ initialCategory }: { initialCategory?: Projec
 
       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <button
+            key={project.slug}
+            type="button"
+            onClick={() => setSelected(project)}
+            aria-label={`View details for ${project.title}`}
+            className="h-full cursor-pointer text-left outline-none focus-visible:ring-3 focus-visible:ring-brand-navy/40"
+          >
+            <ProjectCard project={project} />
+          </button>
         ))}
       </div>
+
+      <ProjectDialog project={selected} onClose={() => setSelected(null)} />
     </div>
   );
 }

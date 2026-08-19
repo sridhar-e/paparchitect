@@ -55,13 +55,11 @@ export const projectSectors = [
   "Process Plants",
   "Transportation",
   "Private Residences",
-  "Apartments & Township Development",
+  "Residential",
   "Institutions",
-  "Offices & IT Parks",
-  "Commercial",
-  "Corporate Interiors",
-  "Banks & Interiors",
-  "Auditorium & Conference",
+  "Commercial & IT buildings",
+  "Interiors",
+  "Auditorium",
 ] as const;
 
 export const statistics = [
