@@ -146,7 +146,7 @@ function slugify(s: string) {
 
 const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[] = [
   // Sports
-  { title: "MAC stadium", location: "Chennai, Tamil Nadu", size: "Capacity 45,000", category: "Sports", featured: true },
+  { title: "MAC stadium", location: "Chennai, Tamil Nadu", size: "Capacity 45,000", category: "Sports" },
   { title: "Volleyball stadium", location: "Chennai", category: "Sports" },
   { title: "CMDA – Parks and Playground - Kannigapuram", location: "Chennai, Tamil Nadu", category: "Sports" },
   { title: "CMDA – Parks and Playground - Shenoy nagar", location: "Chennai, Tamil Nadu", category: "Sports" },
@@ -156,7 +156,7 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
   { title: "Cheyyar SEZ Developers", location: "Krishnagiri, Tamil Nadu", size: "14,50,000 sq ft", category: "Industrial" },
   { title: "Cheyyar SEZ Developers", location: "Cheyyar, Tamil Nadu", size: "12,50,000 sq ft", category: "Industrial" },
   { title: "BOSCH", location: "Bengaluru, Karnataka", size: "5 acres", siteArea: "5 acres", builtUpArea: "1,92,000 sq m", status: "Completed", year: "1999 / 2021", description: "An integrated facility comprising vehicle monitoring, oil and gas storage, car parking, office spaces, and conference facilities.", category: "Industrial", images: [img.bosch1, img.bosch2, img.bosch3] },
-  { title: "CDCI - Master Plan", location: "Bengaluru, Karnataka", size: "70.1 acres", siteArea: "70.1 acres (2,83,670.90 sq m)", status: "Ongoing", year: "2018", category: "Industrial", images: [img.cdci1, img.cdci2, img.cdci3] },
+  { title: "CDCI - Master Plan", location: "Bengaluru, Karnataka", size: "70.1 acres", siteArea: "70.1 acres (2,83,670.90 sq m)", status: "Ongoing", year: "2018", category: "Industrial", featured: true, images: [img.cdci1, img.cdci2, img.cdci3] },
   { title: "FRCCI - Freudenberg Regional Corporate Centre India Private Limited", location: "Morinda, Punjab", size: "25 acres", siteArea: "25.00 acres (1,01,171.40 sq m)", builtUpArea: "45,540.71 sq m", status: "Completed", year: "2022–2024", description: "An integrated, self-sufficient manufacturing campus for Vibracoustic India and Freudenberg NOK India, featuring optimized infrastructure, efficient logistics, dedicated utilities, traffic management, and future-ready expansion planning across a 1,04,737.70 sq m site.", category: "Industrial", images: [img.frcci1, img.frcci2, img.frcci3] },
   { title: "FNI NOK", location: "Chennai, Tamil Nadu", size: "14.05 acres", siteArea: "14.05 acres (56,858.33 sq m)", builtUpArea: "14,958.33 sq m", status: "Completed", year: "2018–2019", category: "Industrial", images: [img.fni] },
   { title: "TEMICO Motors India Private Limited", location: "Bengaluru, Karnataka", size: "4.56 acres", siteArea: "4.56 acres (18,471.77 sq m)", builtUpArea: "5,791.03 sq m", status: "Completed", year: "2023", category: "Industrial", images: [img.temico1, img.temico2, img.temico3] },
@@ -180,7 +180,7 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
   { title: "Kingfisher — Hangar (48 m span)", location: "Chennai", category: "Transportation" },
   { title: "Indian Airlines — Ground Support Complex", location: "Chennai", category: "Transportation" },
   { title: "Air India — Ground Support Complex", location: "Chennai", category: "Transportation" },
-  { title: "Air India MRO — Hangar (92 m span, 2 under-slung 7.5T cranes; 1 no. Boeing 747 / 2 no. Airbus A320)", location: "Shamshabad, Hyderabad", size: "92 m span hangar", category: "Transportation", featured: true },
+  { title: "Air India MRO — Hangar (92 m span, 2 under-slung 7.5T cranes; 1 no. Boeing 747 / 2 no. Airbus A320)", location: "Shamshabad, Hyderabad", size: "92 m span hangar", category: "Transportation" },
 
   // Private Residences
   { title: "Private Residence", location: "Chennai", size: "8,500 sq ft", category: "Private Residences" },
@@ -232,7 +232,7 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
   { title: "Info Park", location: "Kakkanad, Kerala", category: "Interiors", images: [img.infoParkInteriors1, img.infoParkInteriors2, img.infoParkInteriors3, img.infoParkInteriors4] },
   { title: "Technopark", location: "Kerala", category: "Interiors" },
   { title: "Grobest", category: "Interiors", images: [img.grobest1, img.grobest2, img.grobest3] },
-  { title: "Bosch – Oragadam", location: "Oragadam, Chennai", category: "Interiors", images: [img.boschOragadam1, img.boschOragadam2, img.boschOragadam3] },
+  { title: "Bosch – Oragadam", location: "Oragadam, Chennai", category: "Interiors", featured: true, images: [img.boschOragadam1, img.boschOragadam2, img.boschOragadam3] },
   { title: "Yazaki Interior", location: "Bengaluru, Karnataka", size: "0.175 acres", siteArea: "0.175 acres (706.78 sq m)", builtUpArea: "613.76 sq m", status: "Completed", category: "Interiors", images: [img.yazaki1, img.yazaki2, img.yazaki3, img.yazaki4] },
   { title: "Bharat Insurance", location: "Chennai, Tamil Nadu", size: "0.8 acres", siteArea: "0.8 acres (3,236.69 sq m)", builtUpArea: "1,955.82 sq m", status: "Ongoing", category: "Interiors" },
   { title: "HSBC", location: "Bengaluru", size: "1,75,000 sq ft", category: "Interiors" },
