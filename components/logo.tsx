@@ -11,7 +11,7 @@ export function Logo({ className, dark }: { className?: string; dark?: boolean }
       <span className={cn("inline-flex items-center", dark && "bg-white p-1.5")}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/PAP-Logo.svg"
+          src="/images/PNP-Logo.svg"
           alt="Pithavadian And Partners"
           className="h-16 w-auto sm:h-[4.25rem]"
         />
