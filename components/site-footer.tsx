@@ -3,6 +3,7 @@ import { Mail, Phone, Smartphone, MapPin } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { InstagramIcon, FacebookIcon, LinkedInIcon } from "@/components/social-icons";
 import { mainNav, siteInfo } from "@/lib/data/nav";
+import { telHref } from "@/lib/utils";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -80,7 +81,9 @@ export function SiteFooter() {
                 <Phone className="size-4 shrink-0 mt-0.5 text-brand-gold-light" />
                 <span className="flex flex-col">
                   {siteInfo.landlines.map((number) => (
-                    <span key={number}>{number}</span>
+                    <a key={number} href={telHref(number)} className="hover:text-white transition-colors">
+                      {number}
+                    </a>
                   ))}
                 </span>
               </li>
@@ -88,7 +91,9 @@ export function SiteFooter() {
                 <Smartphone className="size-4 shrink-0 mt-0.5 text-brand-gold-light" />
                 <span className="flex flex-col">
                   {siteInfo.mobiles.map((number) => (
-                    <span key={number}>{number}</span>
+                    <a key={number} href={telHref(number)} className="hover:text-white transition-colors">
+                      {number}
+                    </a>
                   ))}
                 </span>
               </li>

@@ -173,7 +173,7 @@ function ProjectDialogBody({ project }: { project: Project }) {
         <div>
           {project.description && (
             <>
-              <h3 className="text-sm font-bold text-brand-navy">About the Project</h3>
+              <h3 className="text-sm font-bold text-brand-gold">About the Project</h3>
               <p className="mt-2 text-sm font-semibold leading-relaxed text-brand-navy">
                 {project.description}
               </p>

@@ -3,6 +3,7 @@ import { Phone, Smartphone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Section, SectionHeading } from "@/components/section";
 import { ContactForm } from "@/components/contact-form";
 import { InstagramIcon, FacebookIcon, LinkedInIcon } from "@/components/social-icons";
+import { telHref } from "@/lib/utils";
 import { siteInfo } from "@/lib/data/nav";
 
 export const metadata: Metadata = {
@@ -60,7 +61,9 @@ export default function ContactPage() {
                   <Phone className="size-4 shrink-0 mt-0.5 text-brand-gold-text" />
                   <span className="flex flex-col">
                     {siteInfo.landlines.map((number) => (
-                      <span key={number}>{number}</span>
+                      <a key={number} href={telHref(number)} className="hover:text-brand-navy">
+                        {number}
+                      </a>
                     ))}
                   </span>
                 </li>
@@ -68,7 +71,9 @@ export default function ContactPage() {
                   <Smartphone className="size-4 shrink-0 mt-0.5 text-brand-gold-text" />
                   <span className="flex flex-col">
                     {siteInfo.mobiles.map((number) => (
-                      <span key={number}>{number}</span>
+                      <a key={number} href={telHref(number)} className="hover:text-brand-navy">
+                        {number}
+                      </a>
                     ))}
                   </span>
                 </li>

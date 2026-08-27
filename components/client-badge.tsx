@@ -109,32 +109,35 @@ export function ClientBadge({
         className
       )}
     >
-      {localLogo ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={localLogo}
-          alt={hideLabel ? name : ""}
-          aria-hidden={hideLabel ? undefined : true}
-          className="h-7 w-auto max-w-full object-contain sm:h-9"
-        />
-      ) : logoSlug ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={`https://cdn.simpleicons.org/${logoSlug}/20386c`}
-          alt={hideLabel ? name : ""}
-          aria-hidden={hideLabel ? undefined : true}
-          className="h-7 w-auto max-w-full sm:h-9"
-        />
-      ) : (
-        <span
-          role={hideLabel ? "img" : undefined}
-          aria-label={hideLabel ? name : undefined}
-          aria-hidden={hideLabel ? undefined : true}
-          className="font-heading text-lg font-bold tracking-wide text-brand-navy/85 transition-colors duration-300 group-hover:text-brand-gold-text sm:text-xl"
-        >
-          {clientMark(name)}
-        </span>
-      )}
+      {/* Every mark gets the same box; object-contain scales it to fit. */}
+      <div className="flex h-10 w-full items-center justify-center sm:h-12">
+        {localLogo ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={localLogo}
+            alt={hideLabel ? name : ""}
+            aria-hidden={hideLabel ? undefined : true}
+            className="max-h-full max-w-full object-contain"
+          />
+        ) : logoSlug ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={`https://cdn.simpleicons.org/${logoSlug}/20386c`}
+            alt={hideLabel ? name : ""}
+            aria-hidden={hideLabel ? undefined : true}
+            className="max-h-full max-w-full object-contain"
+          />
+        ) : (
+          <span
+            role={hideLabel ? "img" : undefined}
+            aria-label={hideLabel ? name : undefined}
+            aria-hidden={hideLabel ? undefined : true}
+            className="font-heading text-lg font-bold tracking-wide text-brand-navy/85 transition-colors duration-300 group-hover:text-brand-gold-text sm:text-xl"
+          >
+            {clientMark(name)}
+          </span>
+        )}
+      </div>
       {!hideLabel && (
         <span className="text-[11px] font-medium leading-snug text-muted-foreground/80">
           {name}
