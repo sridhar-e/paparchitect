@@ -14,6 +14,53 @@ const KNOWN_LOGOS: Record<string, string> = {
 // Supplied artwork, keyed by client name (lowercased). Aliases cover the
 // shorter names used in the home page marquee.
 const LOCAL_LOGOS: Record<string, string> = {
+  // Industries
+  aavin: "/images/Industries-logo-3.png",
+  adani: "/images/Industries-logo-4.jpg",
+  "amann group": "/images/Industries-logo-1.png",
+  "ashley alteams": "/images/Industries-logo-5.jpg",
+  "ashok leyland": "/images/Industries-logo-6.png",
+  bosch: "/images/Industries-logo-7.png",
+  csd: "/images/Industries-logo-8.jpg",
+  freudenberg: "/images/Industries-logo-9.png",
+  "hsmi hwaseung": "/images/Industries-logo-10.jpg",
+  "klueber lubrication": "/images/Industries-logo-11.png",
+  kmf: "/images/Industries-logo-12.png",
+  milma: "/images/Industries-logo-13.png",
+  "mother dairy": "/images/Industries-logo-14.png",
+  "nddb dairy services": "/images/Industries-logo-15.jpg",
+  "nok-freudenberg": "/images/Industries-logo-16.png",
+  nsure: "/images/Industries-logo-17.png",
+  rieter: "/images/Industries-logo-19.png",
+  siemens: "/images/Industries-logo-20.png",
+  sipcot: "/images/Industries-logo-21.png",
+  temico: "/images/Industries-logo-22.jpg",
+  vibracoustic: "/images/Industries-logo-23.png",
+  yapp: "/images/Industries-logo-24.jpg",
+  yazaki: "/images/Industries-logo-2.png",
+  "zf wind power": "/images/Industries-logo-25.png",
+
+  // Institutions
+  "university of madras": "/images/Institutions-logo-1.png",
+  "institute of chartered accountants of india": "/images/Institutions-logo-2.png",
+  "indian institute of astrophysics": "/images/Institutions-logo-3.png",
+  "indian institute of banking & finance": "/images/Institutions-logo-4.png",
+  "iit madras": "/images/Institutions-logo-5.png",
+  "institute of life sciences bhubaneswar": "/images/Institutions-logo-6.png",
+  "iit indore": "/images/Institutions-logo-7.png",
+  "kodaikanal international school": "/images/Institutions-logo-8.png",
+  "niot chennai": "/images/Institutions-logo-9.jpg",
+  "nit tiruchirappalli": "/images/Institutions-logo-10.png",
+  "nit calicut": "/images/Institutions-logo-12.png",
+
+  // Residential
+  "appaswamy real estates": "/images/Residential-logo-1.png",
+  "chhattisgarh housing board": "/images/Residential-logo-2.png",
+  "karnataka housing board": "/images/Residential-logo-3.jpg",
+  rgrhcl: "/images/Residential-logo-4.jpg",
+  "tamil nadu housing board": "/images/Residential-logo-5.png",
+
+  // Commercial
   "bank of baroda": "/images/Commercial-logo-1.png",
   "canara bank": "/images/Commercial-logo-2.png",
   cyberpark: "/images/Commercial-logo-3.png",

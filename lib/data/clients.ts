@@ -16,6 +16,7 @@ export const clientGroups = [
     title: "Industries",
     clients: [
       "Aavin",
+      "Adani",
       "Amann Group",
       "Ashok Leyland",
       "Ashley Alteams",
@@ -37,6 +38,7 @@ export const clientGroups = [
       "Vibracoustic",
       "YAPP",
       "Yazaki",
+      "ZF Wind Power",
     ],
   },
   {
@@ -48,6 +50,7 @@ export const clientGroups = [
       "Indian Institute of Banking & Finance",
       "IIT Indore",
       "IIT Madras",
+      "Institute of Chartered Accountants of India",
       "Institute of Life Sciences Bhubaneswar",
       "Kodaikanal International School",
       "NIT Calicut",
