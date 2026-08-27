@@ -10,10 +10,14 @@ export function ProjectsExplorer({ initialCategory }: { initialCategory?: Projec
   const [active, setActive] = useState<ProjectCategory | "All">(initialCategory ?? "All");
   const [selected, setSelected] = useState<Project | null>(null);
 
-  const filtered = useMemo(
-    () => (active === "All" ? projects : projects.filter((p) => p.category === active)),
-    [active]
-  );
+  const filtered = useMemo(() => {
+    if (active !== "All") return projects.filter((p) => p.category === active);
+    // "All" runs through the categories in their listed (alphabetical) order,
+    // keeping each category's own sequence intact.
+    return [...projects].sort(
+      (a, b) => categories.indexOf(a.category) - categories.indexOf(b.category)
+    );
+  }, [active]);
 
   return (
     <div>

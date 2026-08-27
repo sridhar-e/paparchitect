@@ -6,7 +6,7 @@ import { Timeline } from "@/components/timeline";
 import { TeamCard } from "@/components/team-card";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { TestimonialsGrid } from "@/components/testimonials-grid";
-import { BlueprintGrid } from "@/components/blueprint-grid";
+import { PatternBackdrop } from "@/components/pattern-backdrop";
 import { ArchSketchTower, ArchSketchCampus } from "@/components/arch-sketch";
 import { purposeVisionGoal, leadership, departments } from "@/lib/data/about";
 
@@ -87,9 +87,9 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* History — faint blueprint grid behind the timeline */}
+      {/* History — faint pattern texture behind the timeline */}
       <section className="relative overflow-hidden pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-24">
-        <BlueprintGrid />
+        <PatternBackdrop tone="dark" />
         <div className="container relative px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="History" title="Company Timeline" />
           <div className="mt-10 max-w-2xl md:max-w-none">
