@@ -90,15 +90,15 @@ function ProjectDialogBody({ project }: { project: Project }) {
         <p className="mt-2 text-sm font-bold uppercase tracking-[0.08em] text-brand-navy">
           Project
         </p>
-        <Dialog.Title className="mt-2 font-heading text-2xl font-bold uppercase leading-tight text-brand-gold sm:text-3xl">
+        <Dialog.Title className="mt-2 font-heading text-[25px] font-bold uppercase leading-tight text-brand-gold">
           {project.title}
         </Dialog.Title>
         {subtitle && <Dialog.Description className="sr-only">{subtitle}</Dialog.Description>}
       </div>
 
-      {/* Gallery — a direct child of the sheet, inset 20px on either side. */}
+      {/* Gallery — same side padding as the text blocks, so every edge lines up. */}
       <div
-        className="group/gallery mt-6 px-5"
+        className="group/gallery mt-6 px-5 sm:px-10 lg:px-14"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onFocus={() => setPaused(true)}
