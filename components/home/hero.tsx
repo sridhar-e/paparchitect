@@ -20,9 +20,9 @@ export function Hero() {
 
       <div className="container relative px-4 py-16 sm:px-6 lg:px-8">
         <Reveal className="max-w-xl">
-          <div className="inline-flex items-center gap-2.5 border border-brand-navy/15 bg-white px-4 py-2">
+          <div className="inline-flex items-center gap-2.5">
             <Award className="size-4 text-brand-gold-text" />
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-navy/70">
+            <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand-navy">
               Since 1919 &middot; Architecture, Engineering &amp; Planning
             </span>
           </div>

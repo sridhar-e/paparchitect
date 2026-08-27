@@ -8,7 +8,18 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t-2 border-brand-gold-deep bg-brand-navy-dark text-white">
+    <footer className="relative isolate border-t-2 border-brand-gold-deep bg-brand-navy-dark text-white">
+      {/* From lg up, the intro panel's white ground continues past the divider
+          to the very bottom of the footer. Mirrors the grid geometry below so
+          the band lines up with that column exactly. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hidden lg:block">
+        <div className="container h-full px-8">
+          <div className="grid h-full grid-cols-4 gap-8">
+            <div className="col-span-2 bg-white" />
+          </div>
+        </div>
+      </div>
+
       <div className="container grid gap-10 px-4 py-16 sm:px-6 lg:grid-cols-4 lg:gap-8 lg:px-8">
         <div className="-mt-16 bg-white px-7 pt-[92px] pb-7 lg:col-span-2">
           <Logo />
@@ -93,8 +104,9 @@ export function SiteFooter() {
       </div>
 
       <div className="relative border-t border-white/10">
-        <div className="container flex flex-col gap-2 px-4 py-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>© {year} Pithavadian And Partners. All rights reserved.</p>
+        <div className="container flex flex-col gap-2 px-4 py-6 text-xs text-[#5c6478] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          {/* pl-7 lines the notice up with the panel text above it. */}
+          <p className="pl-7">© {year} Pithavadian And Partners. All rights reserved.</p>
           <p>Offices: {siteInfo.offices.join(" · ")}</p>
         </div>
       </div>

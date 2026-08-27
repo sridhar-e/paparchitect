@@ -11,6 +11,25 @@ const KNOWN_LOGOS: Record<string, string> = {
   hsbc: "hsbc",
 };
 
+// Supplied artwork, keyed by client name (lowercased). Aliases cover the
+// shorter names used in the home page marquee.
+const LOCAL_LOGOS: Record<string, string> = {
+  "bank of baroda": "/images/Commercial-logo-1.png",
+  "canara bank": "/images/Commercial-logo-2.png",
+  cyberpark: "/images/Commercial-logo-3.png",
+  "dhanlaxmi bank": "/images/Commercial-logo-4.png",
+  "indian overseas bank": "/images/Commercial-logo-5.png",
+  gar: "/images/Commercial-logo-6.jpg",
+  "indian bank": "/images/Commercial-logo-7.png",
+  "infopark kochi": "/images/Commercial-logo-8.png",
+  infopark: "/images/Commercial-logo-8.png",
+  sbi: "/images/Commercial-logo-9.png",
+  "technopark kerala": "/images/Commercial-logo-10.png",
+  technopark: "/images/Commercial-logo-10.png",
+  "tidel park": "/images/Commercial-logo-11.png",
+  "union bank of india": "/images/Commercial-logo-12.png",
+};
+
 function clientMark(name: string): string {
   const words = name.split(/\s+/).filter(Boolean);
   const acronym = words.find((w) => w.length >= 2 && w.length <= 6 && w === w.toUpperCase());
@@ -32,7 +51,9 @@ export function ClientBadge({
   className?: string;
   hideLabel?: boolean;
 }) {
-  const logoSlug = KNOWN_LOGOS[name.trim().toLowerCase()];
+  const key = name.trim().toLowerCase();
+  const localLogo = LOCAL_LOGOS[key];
+  const logoSlug = KNOWN_LOGOS[key];
 
   return (
     <div
@@ -41,7 +62,15 @@ export function ClientBadge({
         className
       )}
     >
-      {logoSlug ? (
+      {localLogo ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={localLogo}
+          alt={hideLabel ? name : ""}
+          aria-hidden={hideLabel ? undefined : true}
+          className="h-7 w-auto max-w-full object-contain sm:h-9"
+        />
+      ) : logoSlug ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={`https://cdn.simpleicons.org/${logoSlug}/20386c`}

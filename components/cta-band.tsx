@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { BlueprintGrid } from "@/components/blueprint-grid";
+import { PatternBackdrop } from "@/components/pattern-backdrop";
 
 export function CtaBand({
   heading = "Have a project in mind?",
@@ -16,7 +16,7 @@ export function CtaBand({
 }) {
   return (
     <section className="relative overflow-hidden border-t-2 border-brand-gold-deep bg-brand-navy-dark">
-      <BlueprintGrid tone="white" />
+      <PatternBackdrop />
       <div className="container relative flex flex-col items-center gap-7 px-4 py-16 text-center sm:px-6 lg:flex-row lg:justify-between lg:py-20 lg:text-left lg:px-8">
         <div>
           <h2 className="font-heading text-2xl font-bold text-white sm:text-3xl">

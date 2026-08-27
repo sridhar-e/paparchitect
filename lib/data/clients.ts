@@ -68,6 +68,8 @@ export const clientGroups = [
   {
     title: "Commercial",
     clients: [
+      "Bank of Baroda",
+      "Canara Bank",
       "Century Development Corporation",
       "Cyberpark",
       "Dhanlaxmi Bank",

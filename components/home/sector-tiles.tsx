@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "@/components/section";
 import { Reveal } from "@/components/reveal";
-import { BlueprintGrid } from "@/components/blueprint-grid";
+import { PatternBackdrop } from "@/components/pattern-backdrop";
 import { projectSectors } from "@/lib/data/services";
 import { categoryImage, type ProjectCategory } from "@/lib/data/projects";
 
@@ -66,7 +66,7 @@ function slugify(s: string) {
 export function SectorTiles() {
   return (
     <section className="relative overflow-hidden bg-brand-navy-dark py-16 sm:py-20 lg:py-24">
-      <BlueprintGrid tone="white" />
+      <PatternBackdrop />
       <div className="container relative px-4 sm:px-6 lg:px-8">
         <SectionHeading eyebrow="Where We Build" title="Project Sectors" align="center" light />
         <div className="mt-14 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">

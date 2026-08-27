@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Dialog } from "@base-ui/react/dialog";
-import { ArrowRight, ChevronLeft, ChevronRight, XIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, XIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/lib/data/projects";
@@ -57,8 +56,8 @@ function ProjectDialogBody({ project }: { project: Project }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
+  // Category is the sheet's eyebrow now, so it is left out of the fact list.
   const details = [
-    { label: "Category", value: project.category },
     { label: "Location", value: project.location },
     { label: "Site Area", value: project.siteArea },
     { label: "Built-up Area", value: project.builtUpArea },
@@ -82,16 +81,31 @@ function ProjectDialogBody({ project }: { project: Project }) {
   }, [index, images.length, paused]);
 
   return (
-    <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-      {/* Left: main image with thumbnails below */}
+    <div className="bg-white">
+      <div className="px-5 pt-6 sm:px-10 lg:px-14">
+        {/* Header: sector, label, project name */}
+        <p className="text-sm font-bold uppercase tracking-[0.08em] text-brand-navy">
+          {project.category}
+        </p>
+        <p className="mt-2 text-sm font-bold uppercase tracking-[0.08em] text-brand-navy">
+          Project
+        </p>
+        <Dialog.Title className="mt-2 font-heading text-2xl font-bold uppercase leading-tight text-brand-gold sm:text-3xl">
+          {project.title}
+        </Dialog.Title>
+        {subtitle && <Dialog.Description className="sr-only">{subtitle}</Dialog.Description>}
+      </div>
+
+      {/* Gallery — a direct child of the sheet, inset 20px on either side. */}
       <div
-        className="group/gallery bg-brand-cream p-4 sm:p-5"
+        className="group/gallery mt-6 px-5"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onFocus={() => setPaused(true)}
         onBlur={() => setPaused(false)}
       >
-        <div className="relative aspect-[4/3] overflow-hidden bg-brand-navy/5">
+        {/* Capped against the viewport so the sheet still fits on screen. */}
+        <div className="relative aspect-[16/9] max-h-[52vh] w-full overflow-hidden bg-brand-navy/5">
           <div
             className="flex h-full motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out"
             style={{ transform: `translateX(-${index * 100}%)` }}
@@ -102,7 +116,7 @@ function ProjectDialogBody({ project }: { project: Project }) {
                   src={src}
                   alt={`${project.title} — image ${i + 1} of ${images.length}`}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 600px"
+                  sizes="(max-width: 1080px) 100vw, 1080px"
                   className="object-cover"
                 />
               </div>
@@ -129,10 +143,6 @@ function ProjectDialogBody({ project }: { project: Project }) {
               </button>
             </>
           )}
-
-          <span className="absolute left-0 top-0 border border-white/20 bg-brand-navy-dark/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white">
-            {project.category}
-          </span>
         </div>
 
         {images.length > 1 && (
@@ -151,60 +161,36 @@ function ProjectDialogBody({ project }: { project: Project }) {
                     : "border-transparent opacity-65 hover:opacity-100"
                 )}
               >
-                <Image
-                  src={src}
-                  alt=""
-                  fill
-                  sizes="96px"
-                  className="object-cover"
-                />
+                <Image src={src} alt="" fill sizes="96px" className="object-cover" />
               </button>
             ))}
           </div>
         )}
       </div>
 
-      {/* Right: project details */}
-      <div className="flex flex-col p-6 sm:p-8">
-        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold-text">
-          Project
-        </span>
-        <Dialog.Title className="mt-3 font-heading text-2xl font-semibold leading-tight text-brand-navy">
-          {project.title}
-        </Dialog.Title>
-        {subtitle && (
-          <Dialog.Description className="mt-2 text-sm text-muted-foreground">
-            {subtitle}
-          </Dialog.Description>
-        )}
+      {/* About the project alongside the fact sheet */}
+      <div className="mt-6 grid gap-8 px-5 pb-6 sm:px-10 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:px-14">
+        <div>
+          {project.description && (
+            <>
+              <h3 className="text-sm font-bold text-brand-navy">About the Project</h3>
+              <p className="mt-2 text-sm font-semibold leading-relaxed text-brand-navy">
+                {project.description}
+              </p>
+            </>
+          )}
+        </div>
 
-        <div className="mt-6 h-px w-full bg-border" />
-
-        {project.description && (
-          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-            {project.description}
-          </p>
-        )}
-
-        <dl className="mt-6 space-y-4">
+        <dl className="space-y-1.5 text-xs">
           {details.map((d) => (
-            <div key={d.label} className="grid grid-cols-[7rem_minmax(0,1fr)] gap-3">
-              <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                {d.label}
+            <div key={d.label}>
+              <dt className="inline font-bold uppercase tracking-wide text-brand-gold">
+                {d.label}:{" "}
               </dt>
-              <dd className="text-sm font-medium text-foreground">{d.value}</dd>
+              <dd className="inline font-semibold text-brand-navy">{d.value}</dd>
             </div>
           ))}
         </dl>
-
-        <Button
-          render={<Link href="/contact" />}
-          nativeButton={false}
-          className="mt-8 h-11 gap-2 rounded-lg bg-brand-navy px-6 font-semibold text-white hover:bg-brand-navy-light sm:self-start"
-        >
-          Enquire About This Project
-          <ArrowRight className="size-4" />
-        </Button>
       </div>
     </div>
   );

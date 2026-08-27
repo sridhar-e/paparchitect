@@ -12,8 +12,8 @@ export function WhoWeAre() {
           />
           <div className="relative aspect-[4/3] overflow-hidden border border-border bg-card">
             <Image
-              src="/images/who-we-are.jpg"
-              alt="Architects at work"
+              src="/images/Info-Park-Kochi-1.png"
+              alt="Infopark Kochi — riverfront IT office building by Pithavadian And Partners"
               fill
               loading="eager"
               sizes="(max-width: 1024px) 100vw, 50vw"
