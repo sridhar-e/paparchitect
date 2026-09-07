@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
     category: "Firm News",
     excerpt:
       "From Jackson and Baker in 1919 to Pithavadian And Partners today — a look back at over a hundred years of architecture and engineering practice.",
-    image: "/images/blog-century-of-building.jpg",
+    image: "/images/blog-century-of-building.webp",
     body: [
       "Our firm's story begins in 1919, with the foundation of the parent practice, Jackson and Baker. The oldest drawings in our archives date to this year — a reminder of just how long the firm has been shaping the built environment of South India.",
       "In 1947 the practice was reconstituted as Pryne, Abbot & Davis, and in 1956 Kiffin Peterson and F.B. Pithavadian were inducted as partners. Between 1967 and 1972, F.B. Pithavadian ran the practice as a proprietorship firm, before Pithavadian And Partners was formally founded in 1972 — the name under which we continue to practise today.",
@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
     category: "Project Features",
     excerpt:
       "A look at the structural engineering behind the 92-metre span Air India MRO hangar in Shamshabad, Hyderabad — built to house a Boeing 747 and two Airbus A320s.",
-    image: "/images/transport-hangar.jpg",
+    image: "/images/transport-hangar.webp",
     body: [
       "The Air India MRO facility in Shamshabad, Hyderabad, called for a hangar with a clear span of 92 metres — large enough to accommodate one Boeing 747 or two Airbus A320s simultaneously, served by two under-slung 7.5-tonne cranes.",
       "Spans of this scale demand close coordination between architectural design and structural engineering from the earliest concept stage. Our in-house structural team worked alongside the architectural design team to resolve the long-span roof structure, crane loads and door systems within a single, integrated design process.",
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
     category: "Project Features",
     excerpt:
       "Notes from the Chattisgarh Housing Board project in Naya Raipur — 1,832 housing units across 25,00,000 sq ft.",
-    image: "/images/township.jpg",
+    image: "/images/township.webp",
     body: [
       "The Chattisgarh Housing Board development in Naya Raipur comprises 1,832 units across roughly 25,00,000 sq ft — one of the larger township projects in our portfolio.",
       "At this scale, repeatable design logic matters as much as individual unit design: unit typologies, structural grids and service cores need to be standardised without producing a monotonous environment for residents.",

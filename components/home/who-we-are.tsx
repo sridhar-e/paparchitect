@@ -12,7 +12,7 @@ export function WhoWeAre() {
           />
           <div className="relative aspect-[4/3] overflow-hidden border border-border bg-card">
             <Image
-              src="/images/Info-Park-Kochi-1.png"
+              src="/images/Info-Park-Kochi-1.webp"
               alt="Infopark Kochi — riverfront IT office building by Pithavadian And Partners"
               fill
               loading="eager"

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const COLLAPSED_COUNT = 3;
 
-const PLACEHOLDER_IMAGES = ["/images/office.jpg", "/images/commercial.jpg", "/images/institution.jpg"];
+const PLACEHOLDER_IMAGES = ["/images/office.webp", "/images/commercial.jpg", "/images/institution.webp"];
 
 function placeholderImage(name: string) {
   const hash = name.split("").reduce((sum, ch) => sum + ch.charCodeAt(0), 0);

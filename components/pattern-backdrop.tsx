@@ -15,7 +15,7 @@ export function PatternBackdrop({
     <div
       aria-hidden="true"
       className={cn(
-        "pointer-events-none absolute inset-0 bg-[url('/images/pattern.png')] bg-cover bg-center bg-no-repeat",
+        "pointer-events-none absolute inset-0 bg-[url('/images/pattern.webp')] bg-cover bg-center bg-no-repeat",
         tone === "dark" ? "opacity-[0.07] invert" : "opacity-10",
         className
       )}

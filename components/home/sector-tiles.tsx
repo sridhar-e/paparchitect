@@ -38,12 +38,12 @@ const icons: LucideIcon[] = [
 
 // Sectors that use a specific project photo instead of the generic category image.
 const sectorThumbnail: Partial<Record<(typeof projectSectors)[number], string>> = {
-  Auditorium: "/images/NIOT-Auditorium-1.png",
-  Interiors: "/images/YAZAKI-2.jpg",
-  "Commercial & IT buildings": "/images/Tidel-Neo-Villupuram-1.jpeg",
-  Institutions: "/images/IIT-Indore-Admin-Block-1.jpeg",
-  Industrial: "/images/OMFED-1.png",
-  Residential: "/images/Appasamy-Bloomingdale-Pammal.jpg",
+  Auditorium: "/images/NIOT-Auditorium-1.webp",
+  Interiors: "/images/YAZAKI-2.webp",
+  "Commercial & IT buildings": "/images/Tidel-Neo-Villupuram-1.webp",
+  Institutions: "/images/IIT-Indore-Admin-Block-1.webp",
+  Industrial: "/images/OMFED-1.webp",
+  Residential: "/images/Appasamy-Bloomingdale-Pammal.webp",
 };
 
 // Sectors kept out of the home page grid; they remain filterable on /projects.
