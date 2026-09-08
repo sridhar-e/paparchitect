@@ -111,13 +111,13 @@ function ProjectDialogBody({ project }: { project: Project }) {
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
             {images.map((src, i) => (
-              <div key={`${src}-${i}`} className="relative h-full w-full shrink-0">
+              <div key={`${src}-${i}`} className="relative h-full w-full shrink-0 overflow-hidden">
                 <Image
                   src={src}
                   alt={`${project.title} — image ${i + 1} of ${images.length}`}
                   fill
                   sizes="(max-width: 1080px) 100vw, 1080px"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             ))}
