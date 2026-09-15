@@ -1,0 +1,424 @@
+export type ProjectCategory =
+  | "Sports"
+  | "Industrial"
+  | "Process Plants"
+  | "Transportation"
+  | "Private Residences"
+  | "Residential"
+  | "Institutions"
+  | "Commercial & IT buildings"
+  | "Interiors"
+  | "Auditorium"
+  | "Hotels"
+  | "Retail";
+
+export type Project = {
+  slug: string;
+  title: string;
+  location?: string;
+  size?: string;
+  category: ProjectCategory;
+  featured?: boolean;
+  /** Total site area, as provided by the client. */
+  siteArea?: string;
+  /** Total built-up area, as provided by the client. */
+  builtUpArea?: string;
+  status?: string;
+  year?: string;
+  description?: string;
+  image: string;
+  /** Gallery shown in the project popup; the first entry is the main image. */
+  images: string[];
+};
+
+const img = {
+  sports: "/images/sports.webp",
+  industry: "/images/industry.webp",
+  process: "/images/process.webp",
+  transport: "/images/transport-hangar.webp",
+  residence: "/images/residence.webp",
+  township: "/images/township.webp",
+  institution: "/images/institution.webp",
+  office: "/images/office.webp",
+  commercial: "/images/commercial.jpg",
+  interiors: "/images/interiors.webp",
+  bank: "/images/bank.jpg",
+  auditorium: "/images/auditorium.webp",
+  cheyyar1: "/images/Cheyyar-Auditorium-1.webp",
+  cheyyar2: "/images/Cheyyar-Auditorium-2.webp",
+  niot1: "/images/NIOT-Auditorium-1.webp",
+  niot2: "/images/NIOT-Auditorium-2.webp",
+  niot3: "/images/NIOT-Auditorium-3.webp",
+  raniMeyyammai1: "/images/Rani-Meyyammai-Raja-Muthaiya-Halls-1.webp",
+  raniMeyyammai2: "/images/Rani-Meyyammai-Raja-Muthaiya-Halls-2.webp",
+  amman1: "/images/amman-1.webp",
+  amman2: "/images/amman-2.webp",
+  amman3: "/images/amman-3.webp",
+  bosch1: "/images/BOSCH-1.webp",
+  bosch2: "/images/BOSCH-2.webp",
+  bosch3: "/images/BOSCH-3.webp",
+  cdci1: "/images/CDCI-1.webp",
+  cdci2: "/images/CDCI-2.webp",
+  cdci3: "/images/CDCI-3.webp",
+  fairway1: "/images/FA-1-FA-2-1.webp",
+  fairway2: "/images/FA-1-FA-2-2.webp",
+  fni: "/images/FNI.webp",
+  frcci1: "/images/FRCCI-1.webp",
+  frcci2: "/images/FRCCI-2.webp",
+  frcci3: "/images/FRCCI-3.webp",
+  nsurePilot1: "/images/N-Sure-Pilot-plant-1.webp",
+  nsurePilot2: "/images/N-Sure-Pilot-plant-2.webp",
+  nsureGiga1: "/images/Nsure-Giga-Plant-1.webp",
+  nsureGiga2: "/images/Nsure-Giga-Plant-2.webp",
+  nsureGiga3: "/images/Nsure-Giga-Plant-3.webp",
+  nsureGiga4: "/images/Nsure-Giga-Plant-4.webp",
+  omfed1: "/images/OMFED-1.webp",
+  omfed2: "/images/OMFED-2.webp",
+  omfed3: "/images/OMFED-3.webp",
+  omfed4: "/images/OMFED-4.webp",
+  temico1: "/images/Temico-1.webp",
+  temico2: "/images/Temico-2.webp",
+  temico3: "/images/Temico-3.webp",
+  klueberAdmin: "/images/Freudenberg-Kluber-Admin-Building.JPG",
+  cipet: "/images/CIPET.webp",
+  littleFlower: "/images/Little-flower-nursery-school.webp",
+  privateResidence4000: "/images/Private-Residence-4000-sq-ft.webp",
+  volleyballStadium: "/images/Volley-Ball-Stadium.webp",
+  airIndiaGroundSupport: "/images/Air-India.webp",
+  karnavatiHangar1: "/images/Karnavati-Hangar-1.webp",
+  karnavatiHangar2: "/images/Karnavati-Hangar-2.webp",
+  karnavatiHangar3: "/images/Karnavati-Hangar-3.webp",
+  airIndiaMro1: "/images/Air-India-MRO-Shamshabad-1.webp",
+  airIndiaMro2: "/images/Air-India-MRO-Shamshabad-2.webp",
+  airIndiaMro3: "/images/Air-India-MRO-Shamshabad-3.webp",
+  airIndiaMro4: "/images/Air-India-MRO-Shamshabad-4.webp",
+  airIndiaMro5: "/images/Air-India-MRO-Shamshabad-5.webp",
+  kingfisherHangar1: "/images/Air-Deccan-Kingfisher-1.webp",
+  kingfisherHangar2: "/images/Air-Deccan-Kingfisher-2.webp",
+  kingfisherHangar3: "/images/Air-Deccan-Kingfisher-3.webp",
+  macStadium1: "/images/MAC_Chepauk_stadium-1.webp",
+  macStadium2: "/images/MAC_Chepauk_stadium-2.webp",
+  cmdaShenoyNagar1: "/images/CMDA-Shenoy-nagar-1.webp",
+  cmdaShenoyNagar2: "/images/CMDA-Shenoy-nagar-2.webp",
+  cmdaShenoyNagar3: "/images/CMDA-Shenoy-nagar-3.webp",
+  cmdaShenoyNagar4: "/images/CMDA-Shenoy-nagar-4.webp",
+  cmdaKannigapuram1: "/images/CMDA-kannigapuram-playground-1.webp",
+  cmdaKannigapuram2: "/images/CMDA-kannigapuram-playground-2.webp",
+  cmdaKannigapuram3: "/images/CMDA-kannigapuram-playground-3.webp",
+  cmdaKannigapuram4: "/images/CMDA-kannigapuram-playground-4.webp",
+  tnHousingBoardBesantNagar: "/images/TamilNadu-Housing-Board-Besant-Nagar.webp",
+  privateResidence10000: "/images/Private-Residence-10000-sq-ft.webp",
+  privateResidence8500a: "/images/Private-Residence-8500-sq-ft-1.webp",
+  privateResidence8500b: "/images/Private-Residence-8500-sq-ft-2.webp",
+  privateResidence8500c: "/images/Private-Residence-8500-sq-ft-3.webp",
+  privateResidence8500d: "/images/Private-Residence-8500-sq-ft-4.webp",
+  canaraBankResidence1: "/images/Canara-Bank-Residence-1.webp",
+  canaraBankResidence2: "/images/Canara-Bank-Residence-2.webp",
+  bpclQuarters1: "/images/BPCL-Residential-Quarters-Kochi-1.webp",
+  bpclQuarters2: "/images/BPCL-Residential-Quarters-Kochi-2.webp",
+  bpclQuarters3: "/images/BPCL-Residential-Quarters-Kochi-3.webp",
+  nddbDairy1: "/images/NDDB-Dairy-plant-1.webp",
+  nddbDairy2: "/images/NDDB-Dairy-plant-2.webp",
+  nddbDairy3: "/images/NDDB-Dairy-plant-3.webp",
+  nddbDairy4: "/images/NDDB-Dairy-plant-4.webp",
+  motherDairy1: "/images/Mother-Dairy-1.webp",
+  motherDairy2: "/images/Mother-Dairy-2.webp",
+  motherDairy3: "/images/Mother-Dairy-3.webp",
+  motherDairy4: "/images/Mother-Dairy-4.webp",
+  bioSecurityLab1: "/images/Bio-Security-Lab-1.webp",
+  bioSecurityLab2: "/images/Bio-Security-Lab-2.webp",
+  cyberPark1: "/images/Cyber-park-1.webp",
+  cyberPark2: "/images/Cyber-park-2.webp",
+  cyberPark3: "/images/Cyber-park-3.webp",
+  zf1: "/images/zf-1.webp",
+  zf2: "/images/zf-2.webp",
+  zf3: "/images/zf-3.webp",
+  rieterNittoku1: "/images/Rieter-Nittoku-1.webp",
+  rieterNittoku2: "/images/Rieter-Nittoku-2.webp",
+  klueberIndustries1: "/images/Kluber-Industries-1.webp",
+  klueberIndustries2: "/images/Kluber-Industries-2.webp",
+  infopark1: "/images/Info-Park-Kochi-1.webp",
+  infopark2: "/images/Info-Park-Kochi-2.webp",
+  infopark3: "/images/Info-Park-Kochi-3.webp",
+  laxmiCyberCity: "/images/Laxmi-Cyber-City.webp",
+  tidelVillupuram1: "/images/Tidel-Neo-Villupuram-1.webp",
+  tidelVillupuram2: "/images/Tidel-Neo-Villupuram-2.webp",
+  iia1: "/images/IIA-Bangalore-1.webp",
+  iia2: "/images/IIA-Bangalore-2.webp",
+  iia3: "/images/IIA-Bangalore-3.webp",
+  iitAdmin1: "/images/IIT-Indore-Admin-Block-1.webp",
+  iitAdmin2: "/images/IIT-Indore-Admin-Block-2.webp",
+  iitAdmin3: "/images/IIT-Indore-Admin-Block-3.webp",
+  iitDining1: "/images/IIT-Indore-Dining-Block-1.webp",
+  iitDining2: "/images/IIT-Indore-Dining-Block-2.webp",
+  iibf1: "/images/Indian-Institute-of-Banking-Finance-1.webp",
+  iibf2: "/images/Indian-Institute-of-Banking-Finance-2.webp",
+  iibf3: "/images/Indian-Institute-of-Banking-Finance-3.webp",
+  icai1: "/images/Institute-of-Chartered-Accountants-of-India-1.webp",
+  icai2: "/images/Institute-of-Chartered-Accountants-of-India-2.webp",
+  kis1: "/images/Kodaikanal-International-School-1.webp",
+  kis2: "/images/Kodaikanal-International-School-2.webp",
+  kis3: "/images/Kodaikanal-International-School-3.webp",
+  kis4: "/images/Kodaikanal-International-School-4.webp",
+  mccTambaram1: "/images/MCC-Tambaram-1.webp",
+  mccTambaram2: "/images/MCC-Tambaram-2.webp",
+  mccTambaram3: "/images/MCC-Tambaram-3.webp",
+  sets1: "/images/SETS-Taramani-1.webp",
+  sets2: "/images/SETS-Taramani-2.webp",
+  sets3: "/images/SETS-Taramani-3.webp",
+  sets4: "/images/SETS-Taramani-4.webp",
+  sets5: "/images/SETS-Taramani-5.webp",
+  boschOragadam1: "/images/BOSCH-oragadam-1.webp",
+  boschOragadam2: "/images/BOSCH-oragadam-2.webp",
+  boschOragadam3: "/images/BOSCH-oragadam-3.webp",
+  grobest1: "/images/GROBEST-1.webp",
+  grobest2: "/images/GROBEST-2.webp",
+  grobest3: "/images/GROBEST-3.webp",
+  infoParkInteriors1: "/images/Info-park-1.webp",
+  infoParkInteriors2: "/images/Info-park-2.webp",
+  infoParkInteriors3: "/images/Info-park-3.webp",
+  infoParkInteriors4: "/images/Info-park-4.webp",
+  yazaki1: "/images/YAZAKI-1.webp",
+  yazaki2: "/images/YAZAKI-2.webp",
+  yazaki3: "/images/YAZAKI-3.webp",
+  yazaki4: "/images/YAZAKI-4.webp",
+  bloomingdale: "/images/Appasamy-Bloomingdale-Pammal.webp",
+  chhattisgarh: "/images/Chattisgarh-Housing-Board-Raipur.webp",
+  rghcl1: "/images/Rajiv-Gandhi-Rural-Housing-Corporation-1.webp",
+  rghcl2: "/images/Rajiv-Gandhi-Rural-Housing-Corporation-2.webp",
+  neelankarai1: "/images/Residence-at-Neelankarai-1.webp",
+  neelankarai2: "/images/Residence-at-Neelankarai-2.webp",
+  neelankarai3: "/images/Residence-at-Neelankarai-3.webp",
+  neelankarai4: "/images/Residence-at-Neelankarai-4.webp",
+  sbiQuarters1: "/images/SBI-Residential-Quarters-Mumbai-1.webp",
+  sbiQuarters2: "/images/SBI-Residential-Quarters-Mumbai-2.webp",
+  sbiQuarters3: "/images/SBI-Residential-Quarters-Mumbai-3.webp",
+  spic: "/images/SPIC1.webp",
+  cheyyarSezKrishnagiri: "/images/Cheyyar-SEZ-Krishnagiri.webp",
+  cheyyarSezCheyyar1: "/images/Cheyyar-SEZ-Tamilnadu-1.webp",
+  cheyyarSezCheyyar2: "/images/Cheyyar-SEZ-Tamilnadu-2.webp",
+  ashokLeyland1: "/images/Ashok-Leyland-1.webp",
+  ashokLeyland2: "/images/Ashok-Leyland-2.webp",
+  ashokLeyland3: "/images/Ashok-Leyland-3.webp",
+  vodafoneDataCentre: "/images/Vodafone-Data-Centre.webp",
+  tidelVellore1: "/images/TIDEL-NEO-Vellore-1.webp",
+  tidelVellore2: "/images/TIDEL-NEO-Vellore-2.webp",
+  tidelVellore3: "/images/TIDEL-NEO-Vellore-3.webp",
+  womensChristianCollege1: "/images/Womens-Christian-College-1.jpg",
+  womensChristianCollege2: "/images/Womens-Christian-College-2.png",
+  universityOfHyderabad1: "/images/University-of-hyderabad-1.jpg",
+  universityOfHyderabad2: "/images/University-of-hyderabad-2.jpg",
+  tripleHelix1: "/images/Triple-Helix-1.jpg",
+  tripleHelix2: "/images/Triple-Helix-2.jpg",
+  tripleHelix3: "/images/Triple-Helix-3.jpg",
+  tripleHelix4: "/images/Triple-Helix-4.png",
+  ambedkarPortBlair1: "/images/Ambedkar-Institute-of-Technology-Port-Blair-1.png",
+  ambedkarPortBlair2: "/images/Ambedkar-Institute-of-Technology-Port-Blair-2.png",
+  ambedkarPortBlair3: "/images/Ambedkar-Institute-of-Technology-Port-Blair-3.png",
+  mccAuditorium1: "/images/MCC-Auditorium-1.webp",
+  mccAuditorium2: "/images/MCC-Auditorium-2.webp",
+  mccAuditorium3: "/images/MCC-Auditorium-3.webp",
+  tajConemera: "/images/Taj-Conemera.jpeg",
+  upidiNagerkovil1: "/images/UPIDI-INTERNATIONAL-Nagerkovil-1.jpg",
+  upidiNagerkovil2: "/images/UPIDI-INTERNATIONAL-Nagerkovil-2.jpg",
+  upidiNagerkovil3: "/images/UPIDI-INTERNATIONAL-Nagerkovil-3.jpg",
+  upidiNagerkovil4: "/images/UPIDI-INTERNATIONAL-Nagerkovil-4.jpg",
+  ttdcRameswaram1: "/images/TTDC-Rameswaram-1.webp",
+  ttdcRameswaram2: "/images/TTDC-Rameswaram-2.webp",
+  theCollage1: "/images/The-Collage-1.JPG",
+  theCollage2: "/images/The-Collage-2.JPG",
+  theCollage3: "/images/The-Collage-3.JPG",
+  indianAirlinesGroundSupport: "/images/Indian-Airlines-Ground-Support-Complex.png",
+  vncResidence: "/images/VNC-Residence.png",
+  nitCalicutHostel: "/images/NIT-Calicut-1000-Bed-Hostel.jpg",
+  iiscMasterPlan: "/images/IISC-MASTER-PLAN.png",
+  hexaware: "/images/HEXAWARE.png",
+  cognizantKochi: "/images/Cognizant-Campus.png",
+  containerFreightStation: "/images/Container-Freight-Station.png",
+  cmdaGrainMarket: "/images/CMDA.png",
+  stateBankOfIndia: "/images/state-bank-of-india.png",
+  iobCathedral1: "/images/IOB-Cathedral-Branch-1.jpg",
+  iobCathedral2: "/images/IOB-Cathedral-Branch-2.jpg",
+  moefChennai1: "/images/Ministry-Of-Environmental-Forest-Office-building-Chennai-1.jpg",
+  moefChennai2: "/images/Ministry-Of-Environmental-Forest-Office-building-Chennai-2.jpg",
+  moefChennai3: "/images/Ministry-Of-Environmental-Forest-Office-building-Chennai-3.jpg",
+};
+
+function slugify(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[] = [
+  // Sports
+  { title: "MAC stadium", location: "Chennai, Tamil Nadu", size: "Capacity 45,000", category: "Sports", description: "M.A. Chidambaram Stadium, Chepauk, blends heritage with modern architecture, featuring climate-responsive stands, natural ventilation, shaded seating, and strong urban integration.", images: [img.macStadium1, img.macStadium2] },
+  { title: "CMDA – Parks and Playground - Kannigapuram", location: "Chennai, Tamil Nadu", size: "3.87 acres", siteArea: "3.87 acres", description: "A 3.87-acre sports complex featuring football, kabaddi, volleyball, Silambam and cricket practice courts, along with badminton, gyms, yoga, outdoor gym, kids’ play area, galleries, parking and barrier-free facilities.", category: "Sports", images: [img.cmdaKannigapuram1, img.cmdaKannigapuram2, img.cmdaKannigapuram3, img.cmdaKannigapuram4] },
+  { title: "CMDA – Parks and Playground - Shenoy nagar", location: "Chennai, Tamil Nadu", size: "4.265 acres", siteArea: "4.265 acres", description: "A 4.265-acre ground including football, futsal, volleyball and basketball courts, along with a fully equipped gym, changing facilities, toilets, parking, barrier-free access and a paved walking track.", category: "Sports", images: [img.cmdaShenoyNagar1, img.cmdaShenoyNagar2, img.cmdaShenoyNagar3, img.cmdaShenoyNagar4] },
+
+  // Industrial
+  { title: "Cheyyar SEZ Developers", location: "Krishnagiri, Tamil Nadu", size: "14,50,000 sq ft", description: "An industrial project encompassing master planning, raw and finished goods warehousing, shoe production lines, admin offices, a 3,000-capacity dining hall, a 5,000-seat auditorium, MEP engineering, and STP/ETP facilities.", category: "Industrial", images: [img.cheyyarSezKrishnagiri] },
+  { title: "Cheyyar SEZ Developers", location: "Cheyyar, Tamil Nadu", size: "12,50,000 sq ft", category: "Industrial", images: [img.cheyyarSezCheyyar1, img.cheyyarSezCheyyar2] },
+  { title: "BOSCH", location: "Bengaluru, Karnataka", size: "5 acres", siteArea: "5 acres", builtUpArea: "1,92,000 sq m", status: "Completed", year: "1999 / 2021", description: "An integrated facility comprising vehicle monitoring, oil and gas storage, car parking, office spaces, and conference facilities.", category: "Industrial", images: [img.bosch1, img.bosch2, img.bosch3] },
+  { title: "CDCI - Master Plan", location: "Bengaluru, Karnataka", size: "70.1 acres", siteArea: "70.1 acres (2,83,670.90 sq m)", status: "Ongoing", year: "2018", description: "Preparation of a master plan on a contour map with architectural drawings, detailed drawings covering master plan, elevation and section, quantity surveying, abstract estimate, structural reinforcement drawings, and vetting for CDCI Bengaluru.", category: "Industrial", featured: true, images: [img.cdci1, img.cdci2, img.cdci3] },
+  { title: "FRCCI - Freudenberg Regional Corporate Centre India Private Limited", location: "Morinda, Punjab", size: "25 acres", siteArea: "25.00 acres (1,01,171.40 sq m)", builtUpArea: "45,540.71 sq m", status: "Completed", year: "2022–2024", description: "An integrated, self-sufficient manufacturing campus for Vibracoustic India and Freudenberg NOK India, featuring optimized infrastructure, efficient logistics, dedicated utilities, traffic management, and future-ready expansion planning across a 1,04,737.70 sq m site.", category: "Industrial", images: [img.frcci1, img.frcci2, img.frcci3] },
+  { title: "FNI NOK", location: "Chennai, Tamil Nadu", size: "14.05 acres", siteArea: "14.05 acres (56,858.33 sq m)", builtUpArea: "14,958.33 sq m", status: "Completed", year: "2018–2019", description: "An industrial manufacturing facility incorporating a large pre-engineered building production floor, a three-storey RCC office block, and dedicated parking zones designed for cars, two-wheelers, and heavy trucks.", category: "Industrial", images: [img.fni] },
+  { title: "TEMICO Motors India Private Limited", location: "Bengaluru, Karnataka", size: "4.56 acres", siteArea: "4.56 acres (18,471.77 sq m)", builtUpArea: "5,791.03 sq m", status: "Completed", year: "2023", description: "A manufacturing facility featuring a PEB factory with an integrated two-storey office block, air-conditioned assembly areas, raw and finished goods warehousing, dispatch parking, and 100% future expansion capacity.", category: "Industrial", images: [img.temico1, img.temico2, img.temico3] },
+  { title: "AMANN SEWING & Embroidery Threads Private Limited", location: "Ranipet, Tamil Nadu", size: "12 acres", siteArea: "12 acres (1,26,000 sq m)", builtUpArea: "5,791.03 sq m", status: "Completed", year: "2025", description: "An integrated 800-tonnes-per-year sewing thread manufacturing facility serving apparel, automotive, footwear, and leather industries, with end-to-end production, advanced utilities including ZLD, efficient logistics, administrative spaces, and comprehensive employee welfare facilities.", category: "Industrial", images: [img.amman1, img.amman2, img.amman3] },
+  { title: "Nsure Pilot", location: "Bengaluru, Karnataka", size: "5.2 acres", siteArea: "5.2 acres (22,156.20 sq m)", builtUpArea: "11,036.70 sq m", status: "Ongoing", year: "2023 – Ongoing", description: "Nsure is conceived as a future-ready clean energy manufacturing campus, marking RCCL Group's diversification into advanced energy technologies, including lithium-ion cells, advanced chemistries, and fuel cells. The five-block facility combines PEB structures for the pilot plant and warehouse with RCC buildings for administration and accommodation, creating an efficient and scalable industrial environment.", category: "Industrial", images: [img.nsurePilot1, img.nsurePilot2] },
+  { title: "Nsure Giga Plant", location: "Bengaluru, Karnataka", size: "50 acres", status: "Ongoing", description: "The giga plant developed across a 50-acre site, integrating comprehensive manufacturing and processing operations with stores, formation buildings, utilities, toilet blocks, and MEP-support infrastructure. The facility is designed as a scalable industrial ecosystem, with provision for future expansion through six additional plants within the larger industrial development.", category: "Industrial", images: [img.nsureGiga1, img.nsureGiga2, img.nsureGiga3, img.nsureGiga4] },
+  { title: "ZF Wind Power Private Limited", location: "Coimbatore, Tamil Nadu", size: "11,753.18 sq m built-up", builtUpArea: "11,753.18 sq m", status: "Completed", year: "2024", description: "A sustainable brownfield industrial development integrating a three-storey RCC office and dining block with a PEB production facility, featuring high-stack storage, temperature-controlled production, paint shop, solar-ready roofing, green building principles, and provision for future expansion.", category: "Industrial", images: [img.zf1, img.zf2, img.zf3] },
+  { title: "Fairway Enterprises Private Ltd - FA 1 and FA 2", location: "Bargur, Tamil Nadu", size: "146.72 acres", siteArea: "146.72 acres (5,93,754.77 sq m)", builtUpArea: "2,32,680.25 sq m", status: "Completed", year: "2022", description: "A large-scale leather goods manufacturing campus comprising PEB production and warehouse facilities, canteens, and a G+1 RCC main office with a sloped roof, complemented by a G+1 RCC RTC building for guest accommodation. The development integrates industrial, administrative, and support functions within a well-planned campus to support large-scale operations.", category: "Industrial", images: [img.fairway1, img.fairway2] },
+  { title: "Ashok Leyland (Ashley Alteams)", location: "Cheyyar, Tamil Nadu", size: "1,78,000 sq ft", description: "A sustainable manufacturing facility featuring four streamlined production zones, from aluminium melting to dispatch, complemented by a green-certified office block, 25-ton EOT cranes, CNC facilities, and landscaped courtyards.", category: "Industrial", images: [img.ashokLeyland1, img.ashokLeyland2, img.ashokLeyland3] },
+  { title: "Rieter Nittoku", location: "Oragadam, Tamil Nadu", size: "55,000 sq ft", description: "Designed for weak soil on reclaimed land, this heavy-duty facility integrates a two-storey steel office, a curved-roof PEB production block, comprehensive infrastructure, utility systems, and landscape development.", category: "Industrial", images: [img.rieterNittoku1, img.rieterNittoku2] },
+  { title: "Klueber Industries — Group Development", location: "Mysore, Karnataka", size: "1,40,000 sq ft", description: "A sustainable campus featuring a three-storey RCC green office block, multilevel PEB production and warehousing facilities, an extensive high-risk fire safety system, and ample truck and car parking.", category: "Industrial", images: [img.klueberIndustries1, img.klueberIndustries2] },
+  { title: "OMFED", location: "Govindpur, Odisha", size: "8 acres", siteArea: "8 acres (32,000 sq m)", builtUpArea: "21,138.93 sq m", status: "Completed", year: "2021", description: "A state-of-the-art automated dairy processing facility with a capacity of 5 lakh litres per day, designed for efficient production of milk powder, cheese, paneer, butter, and other value-added dairy products. The facility integrates advanced processing technology, hygienic planning, and streamlined production workflows.", category: "Industrial", images: [img.omfed1, img.omfed2, img.omfed3, img.omfed4] },
+
+  // Process Plants
+  { title: "Bio Security Lab — Ministry of Agriculture & Animal Husbandry", location: "Bengaluru, Karnataka", category: "Process Plants", images: [img.bioSecurityLab1, img.bioSecurityLab2] },
+  { title: "NDDB — Dairy & Powder Plant", location: "Channarayapatna, Karnataka", category: "Process Plants", images: [img.nddbDairy1, img.nddbDairy2, img.nddbDairy3, img.nddbDairy4] },
+  { title: "Mother Dairy", location: "Etawah, Uttar Pradesh", size: "1,21,000 sq ft", category: "Process Plants", images: [img.motherDairy1, img.motherDairy2, img.motherDairy3, img.motherDairy4] },
+
+  // Transportation
+  { title: "Kingfisher — Hangar (48 m span)", location: "Chennai, Tamil Nadu", category: "Transportation", description: "This utilitarian aviation facility integrates a 48 m wide-span steel maintenance hangar with an attached modular multi-story administrative building, optimized for operational efficiency and structural durability.", images: [img.kingfisherHangar1, img.kingfisherHangar2, img.kingfisherHangar3] },
+  { title: "Indian Airlines — Ground Support Complex", location: "Chennai, Tamil Nadu", category: "Transportation", description: "A functional industrial facility featuring a rhythmic folded-plate roof, exposed concrete skeleton, and high-clearance open bays engineered for heavy ground handling operations.", images: [img.indianAirlinesGroundSupport] },
+  { title: "Air India — Ground Support Complex", location: "Chennai, Tamil Nadu", category: "Transportation", description: "A robust aviation maintenance complex featuring functional zoning, durable concrete architecture, shaded façades, secure circulation, and efficient airside connectivity for ground-support operations.", images: [img.airIndiaGroundSupport] },
+  { title: "Air India MRO — Hangar (92 m span, 2 under-slung 7.5T cranes; 1 no. Boeing 747 / 2 no. Airbus A320)", size: "92 m span hangar", category: "Transportation", description: "Engineered for heavy aircraft maintenance, this state-of-the-art aviation facility features a 92-meter clear-span structure with dual 7.5-ton cranes, seamlessly combining advanced structural engineering with modern administrative spaces.", images: [img.airIndiaMro1, img.airIndiaMro2, img.airIndiaMro3, img.airIndiaMro4, img.airIndiaMro5] },
+  { title: "Karnavati Hangar", category: "Transportation", images: [img.karnavatiHangar1, img.karnavatiHangar2, img.karnavatiHangar3] },
+
+  // Private Residences
+  { title: "Private Residence", location: "Chennai, Tamil Nadu", size: "8,500 sq ft", category: "Private Residences", images: [img.privateResidence8500a, img.privateResidence8500b, img.privateResidence8500c, img.privateResidence8500d] },
+  { title: "Private Residence", location: "Chennai, Tamil Nadu", size: "10,000 sq ft", category: "Private Residences", images: [img.privateResidence10000] },
+  { title: "Private Residence", location: "Chennai, Tamil Nadu", size: "4,000 sq ft", category: "Private Residences", images: [img.privateResidence4000] },
+
+  // Residential
+  { title: "Appaswamy Bloomingdale Pammal", location: "Pammal, Chennai, Tamil Nadu", size: "1,09,000 sq ft", status: "Completed", description: "A contemporary multi-storey residential development characterized by articulated building masses, recessed balconies, vertical façade elements, and a balanced palette of neutral tones. The design emphasizes natural light, ventilation, visual rhythm, and efficient residential planning, complemented by landscaped open spaces and a defined entrance plaza.", category: "Residential", images: [img.bloomingdale] },
+  { title: "Rajiv Gandhi Housing Corporation Limited (RGHCL)", location: "Bengaluru, Karnataka", size: "75,000 sq ft", status: "Completed", description: "A multi-storey affordable housing development on the outskirts of Bengaluru, incorporating cost-effective and efficient structural design along with all safety features required in a high-rise facility.", category: "Residential", images: [img.rghcl1, img.rghcl2] },
+  { title: "Chhattisgarh Housing Board", location: "New Raipur, Chhattisgarh", size: "153.99 acres", siteArea: "153.99 acres (6,23,175.00 sq m)", builtUpArea: "2,40,848.97 sq m", status: "Completed", year: "2010", description: "A large-scale integrated residential township comprising flatted, plotted, and EWS housing, with Stilt+6 apartment blocks, G+3 EWS blocks, and dedicated community retail through two strategically located malls. The master plan emphasizes diverse housing, efficient zoning, accessibility, and a balanced community-oriented living environment.", category: "Residential", featured: true, images: [img.chhattisgarh] },
+  { title: "VNC Residence", location: "Alwarpet, Chennai, Tamil Nadu", size: "8,500 sq ft", category: "Residential", images: [img.vncResidence] },
+  { title: "Tamil Nadu Housing Board", location: "Chennai, Tamil Nadu", size: "71,000 sq ft", description: "A multi-storey residential development with well-defined building masses, articulated façades, repetitive window openings and vertical glazing elements. The design focuses on functional planning, natural lighting, ventilation and efficient circulation, with organized vehicular access and site planning.", category: "Residential", images: [img.tnHousingBoardBesantNagar] },
+  { title: "Karnataka Housing Board", location: "Karnataka", description: "More than 20 landed and multi-level housing complexes, including master plan development and commercial buildings. Services covered comprehensive design across all projects and project management on a selected few.", category: "Residential" },
+  { title: "SBI Residential Quarters", location: "Mumbai, Maharashtra", size: "1.246 acres, 126 units", siteArea: "1.246 acres (5,045 sq m)", builtUpArea: "25,028.39 sq m", status: "Ongoing", description: "A 10-storey residential development comprising 126 apartments, with 2BHK and 3BHK units efficiently planned across the upper floors, supported by ground and first-floor parking. The design integrates landscaped outdoor spaces to enhance the residential environment and occupant experience.", category: "Residential", images: [img.sbiQuarters1, img.sbiQuarters2, img.sbiQuarters3] },
+  { title: "Canara Bank Residence", description: "A modern mixed-use development pairing an eight-storey apartment tower with a three-storey commercial bank building, featuring glass balconies, off-white façades, textured accent panels, and ground-level parking.", category: "Residential", images: [img.canaraBankResidence1, img.canaraBankResidence2] },
+  { title: "BPCL residential quarters", location: "Kochi, Kerala", size: "4.93 acres", siteArea: "4.93 acres (19,988.42 sq m)", builtUpArea: "15,843.64 sq m", status: "Ongoing", description: "A Stilt + 13-storey residential development comprising 66 apartments, with dedicated car parking at stilt/ground level and two-wheeler parking at basement level. The planning ensures efficient vertical residential zoning with optimized parking and circulation.", category: "Residential", images: [img.bpclQuarters1, img.bpclQuarters2, img.bpclQuarters3] },
+  { title: "Residence at Neelankarai", location: "Neelankarai, Chennai, Tamil Nadu", category: "Residential", images: [img.neelankarai1, img.neelankarai2, img.neelankarai3, img.neelankarai4] },
+
+  // Institutions
+  { title: "Indian Institute of Astrophysics", location: "Bengaluru, Karnataka", size: "5 acres", siteArea: "5 acres (20,348.95 sq m)", builtUpArea: "10,755.30 sq m", status: "Ongoing", description: "A Basement + Ground + 5-storey RCC laboratory building within the existing IIA campus, designed to support advanced research and laboratory functions in astronomy and astrophysics. The facility integrates specialized research spaces within a contemporary institutional framework, complementing the existing campus environment.", category: "Institutions", images: [img.iia1, img.iia2, img.iia3] },
+  { title: "CIPET — Students Hostel", location: "Chennai, Tamil Nadu", size: "1,06,000 sq ft", category: "Institutions", images: [img.cipet] },
+  { title: "Kodaikanal International School", location: "Kodaikanal, Tamil Nadu", size: "4.84 acres", siteArea: "4.84 acres (19,580.06 sq m)", builtUpArea: "4,862.79 sq m", status: "Completed", year: "2015", description: "A G+1 residential campus development comprising dormitory blocks and staff quarters with sloped roofs, sensitively designed to integrate with Kodaikanal’s hill landscape. The architecture emphasizes a warm, campus-oriented character and climate-responsive design, creating a comfortable residential environment within the 43-acre educational campus.", category: "Institutions", images: [img.kis1, img.kis2, img.kis3, img.kis4] },
+  { title: "NIT Calicut — 1000-Bed Hostel", location: "Calicut, Kerala", size: "5,38,000 sq ft", category: "Institutions", images: [img.nitCalicutHostel] },
+  { title: "IIT Indore Admin Block", location: "Indore, Madhya Pradesh", size: "7,592.62 sq m built-up", siteArea: "3,596.00 sq m", builtUpArea: "7,592.62 sq m", status: "Completed", year: "2021", description: "A G+9 administrative building comprising east and west wings, strategically planned for executive offices, meeting rooms, boardroom, and support spaces. The rotated upper floors enhance architectural character and provide effective solar shading, contributing to improved energy efficiency and occupant comfort.", category: "Institutions", featured: true, images: [img.iitAdmin1, img.iitAdmin2, img.iitAdmin3] },
+  { title: "IIT Indore Dining Block", location: "Indore, Madhya Pradesh", size: "12,215.85 sq m built-up", siteArea: "8,863.25 sq m", builtUpArea: "12,215.85 sq m", status: "Completed", year: "2020", description: "A four-storey dining and kitchen facility designed as a vibrant social and dining hub, accommodating 2,000 users across multiple dining halls with supporting kitchen, storage, student activity, food court, and concourse spaces. The building integrates indoor, outdoor, and rooftop dining areas to create a flexible and engaging campus environment.", category: "Institutions", images: [img.iitDining1, img.iitDining2] },
+  { title: "MCC Tambaram", location: "Chennai, Tamil Nadu", status: "Completed", category: "Institutions", images: [img.mccTambaram1, img.mccTambaram2, img.mccTambaram3] },
+  { title: "SETS Taramani", location: "Taramani, Chennai, Tamil Nadu", size: "2.81 acres", siteArea: "2.81 acres (11,357.00 sq m)", builtUpArea: "4,540.06 sq m", status: "Completed", year: "2014", description: "A high-security research and administrative facility designed with clearly zoned security levels, integrating administrative offices, secure research areas, and highly restricted research zones. The architectural planning prioritizes security, controlled access, functional segregation, and research efficiency while creating a distinctive institutional presence along Chennai’s IT corridor.", category: "Institutions", images: [img.sets1, img.sets2, img.sets3, img.sets4, img.sets5] },
+  { title: "Indian Institute of Banking Finance", location: "Chennai, Tamil Nadu", size: "3,169.5 sq m built-up", siteArea: "1,116.43 sq m", builtUpArea: "3,169.5 sq m", status: "Ongoing", year: "2023", description: "A B+G+4 office and training centre integrating classrooms, tutorial rooms, offices, and limited accommodation, strategically planned at a prominent urban junction. The building adopts sustainable design principles targeting IGBC Platinum certification, balancing institutional functionality with environmental performance.", category: "Institutions", images: [img.iibf1, img.iibf2, img.iibf3] },
+  { title: "Institute of Chartered Accountants of India (ICAI)", location: "Chennai, Tamil Nadu", size: "1,723 sq m built-up", siteArea: "3,719 sq m", builtUpArea: "1,723 sq m", status: "Completed", year: "2026", description: "A G+1 institutional building for ICAI, planned with classrooms, laboratories, and a conference hall within a compact 3,719 sq m site. The design focuses on efficient academic planning, functional zoning, and a cohesive institutional environment.", category: "Institutions", images: [img.icai1, img.icai2] },
+  { title: "Little Flower Nursery School & Residential Quarters", location: "Chennai, Tamil Nadu", size: "1,742.64 sq m built-up", siteArea: "1,934.37 sq m", builtUpArea: "1,742.64 sq m", status: "Completed", year: "2025", description: "A G+1 nursery school accommodating classrooms, staff, and administrative spaces, complemented by Stilt + 3 residential quarters. The development integrates educational and residential functions within a compact, efficient campus layout.", category: "Institutions", images: [img.littleFlower] },
+  { title: "IISC - MASTERPLAN / Landscaping / Infrastructure Development", location: "Bengaluru, Karnataka", size: "400 acres", siteArea: "400 acres", status: "Ongoing", description: "Developing a comprehensive master plan for the IISc main campus through detailed surveying and integrated planning. The project encompasses campus infrastructure, buildings, parking, open spaces, landscaping, utilities, external lighting, signage, and hardscaping, creating a cohesive, sustainable, and functional campus environment for future growth and improved user experience.", category: "Institutions", images: [img.iiscMasterPlan] },
+
+  // Commercial & IT buildings
+  { title: "Laxmi Cyber City", location: "Hyderabad, Telangana", size: "2.96 acres", siteArea: "2.96 acres (12,005.90 sq m)", builtUpArea: "40,937.82 sq m", status: "Completed", description: "A contemporary commercial building featuring a reflective glass curtain wall framed by a repetitive rectilinear grid structure, anchored by a prominent vertical semi-cylindrical cladding core that defines its modern massing.", category: "Commercial & IT buildings", featured: true, images: [img.laxmiCyberCity] },
+  { title: "Vodafone — Data Center", location: "Chennai, Tamil Nadu", size: "30,000 sq ft", description: "A contemporary design showcasing asymmetrical geometric massing with contrasting crisp white stucco, dark portal frames, angled louver panels, and warm textured accent towers housing recessed narrow glass openings.", category: "Commercial & IT buildings", images: [img.vodafoneDataCentre] },
+  { title: "Freudenberg Klueber Admin Building", location: "Mysore, Karnataka", description: "A modern industrial facility incorporating low-rise, sprawling rectilinear massing with pristine white cladding, accented by dark blue glazed curtain walls, prominent entrance portals, and solar-panelled rooftop integration.", category: "Commercial & IT buildings", images: [img.klueberAdmin] },
+  { title: "Infopark Kochi", location: "Kakkanad, Kerala", size: "7.26 acres", siteArea: "7.26 acres (27,518.62 sq m)", builtUpArea: "49,901.03 sq m", status: "Completed", year: "2017", description: "A 10-storey glass-clad IT office building designed with bioclimatic principles, featuring a distinctive boomerang form that maximizes riverfront views and enhances thermal comfort. The campus integrates landscaped waterfront spaces, engineering services, and a 460-car multi-level parking facility for a cohesive and efficient workplace environment.", category: "Commercial & IT buildings", featured: true, images: [img.infopark1, img.infopark2, img.infopark3] },
+  { title: "Hexaware — Corporate Campus — Proposal", description: "A proposed IT campus featuring twin massing blocks clad in a mosaic blue panel façade, connected by a sweeping glass atrium and fronted by an angular white steel structure.", category: "Commercial & IT buildings", images: [img.hexaware] },
+  { title: "Cognizant Technology Solutions — Kochi Campus — Proposal", location: "Kochi, Kerala", description: "A proposed master-planned campus featuring multi-storey modular office blocks with green roofs, organized along a central landscaped canal with fountains, pedestrian bridges, and modern glazed façades.", category: "Commercial & IT buildings", images: [img.cognizantKochi] },
+  { title: "Tidel Neo Vellore", location: "Vellore, Tamil Nadu", size: "55,000 sq ft", status: "Completed", year: "2025", description: "A state-wide IT and commercial hub development integrating IT/ITES offices, business services, and public-facing commercial spaces, designed to extend digital infrastructure and economic opportunities beyond major cities. TIDEL Neo promotes a distributed, community-oriented urban model that connects global technology with local growth.", category: "Commercial & IT buildings", images: [img.tidelVellore1, img.tidelVellore2, img.tidelVellore3] },
+  { title: "Tidel Neo Villupuram", location: "Villupuram, Tamil Nadu", size: "5.27 acres", siteArea: "5.27 acres (21,136.77 sq m)", builtUpArea: "5,612.96 sq m", status: "Completed", year: "2024", description: "A state-wide IT and commercial hub development integrating IT/ITES offices, business services, and public-facing commercial spaces, designed to extend digital infrastructure and economic opportunities beyond major cities. TIDEL Neo promotes a distributed, community-oriented urban model that connects global technology with local growth.", category: "Commercial & IT buildings", images: [img.tidelVillupuram1, img.tidelVillupuram2] },
+  { title: "Container Freight Station — Warehouse", location: "Kochi, Kerala", category: "Commercial & IT buildings", images: [img.containerFreightStation] },
+  { title: "CMDA — Wholesale Grain Market", location: "Chennai, Tamil Nadu", size: "2,67,000 sq ft", category: "Commercial & IT buildings", images: [img.cmdaGrainMarket] },
+  { title: "SPIC", description: "A mid-rise corporate complex featuring twin modernist concrete office buildings with pink plaster finishes, a uniform window grid, deeply recessed glass, and integrated street-level commercial access.", category: "Commercial & IT buildings", images: [img.spic] },
+  { title: "Ministry Of Environmental Forest Office building - Chennai", location: "Chennai, Tamil Nadu", description: "A four-storey building combining brown brick masonry with white rendered box frames, featuring large glass curtain walls, stilt parking below, protruding window surrounds, and integrated art panels.", category: "Commercial & IT buildings", images: [img.moefChennai1, img.moefChennai2, img.moefChennai3] },
+
+  // Interiors
+  { title: "Cyber Park", location: "Kerala", description: "A modern office featuring light wood modular workstations with vibrant yellow screens, grey textured feature walls, and glossy tiled floors.", category: "Interiors", images: [img.cyberPark1, img.cyberPark2, img.cyberPark3] },
+  { title: "Info Park", location: "Kakkanad, Kerala", description: "A modern office interior pairing modular workstations and glass-partitioned cabins with dark geometric wall graphics, peach accent surfaces, linear ceiling lighting, and a dedicated wood-floored lounge area.", category: "Interiors", images: [img.infoParkInteriors1, img.infoParkInteriors2, img.infoParkInteriors3, img.infoParkInteriors4] },
+  { title: "Grobest", description: "A corporate space featuring dark laminate workstations with purple and blue screens, zebra window blinds, a U-shaped conference layout, and a backlit wood-panelled executive feature wall.", category: "Interiors", images: [img.grobest1, img.grobest2, img.grobest3] },
+  { title: "Bosch – Oragadam", location: "Oragadam, Chennai, Tamil Nadu", description: "A modern office layout featuring clean white modular desks with bright yellow divider screens, dark grey matte floor tiles, recessed geometric ceiling profile lighting, and a deep teal accent wall.", category: "Interiors", featured: true, images: [img.boschOragadam1, img.boschOragadam2, img.boschOragadam3] },
+  { title: "Yazaki Interior", location: "Bengaluru, Karnataka", size: "0.175 acres", siteArea: "0.175 acres (706.78 sq m)", builtUpArea: "613.76 sq m", status: "Completed", description: "A corporate workspace featuring modular cubicles with blue divider screens, light wood desking, grey carpet tile flooring, vibrant yellow soffit ceiling accents, and a beige-leather reception lounge.", category: "Interiors", images: [img.yazaki1, img.yazaki2, img.yazaki3, img.yazaki4] },
+  { title: "State Bank of India", location: "Chennai, Tamil Nadu", description: "A modern banking lounge featuring curved purple seating, cylindrical display tables, blue-striped accent walls, a recessed ceiling cove with cove lighting, and colourful padded wall panels.", category: "Interiors", images: [img.stateBankOfIndia] },
+  { title: "IOB Cathedral Branch", location: "Chennai, Tamil Nadu", description: "A double-height bank hall combining warm wood ceilings, slatted branding walls, and circular ring pendants above a plush beige lounge area flanked by customer service counters.", category: "Interiors", images: [img.iobCathedral1, img.iobCathedral2] },
+  { title: "Bank of Baroda", location: "Chennai, Tamil Nadu", category: "Interiors" },
+
+  // Auditorium
+  { title: "NIOT AUDITORIUM", location: "Chennai, Tamil Nadu", category: "Auditorium", images: [img.niot1, img.niot2, img.niot3] },
+  { title: "Cheyyar Auditorium", size: "5000-seater", category: "Auditorium", images: [img.cheyyar1, img.cheyyar2] },
+  { title: "MCC AUDITORIUM", location: "Chennai, Tamil Nadu", category: "Auditorium", images: [img.mccAuditorium1, img.mccAuditorium2, img.mccAuditorium3] },
+  { title: "Rani Meyyammai Raja Muthaiya Halls", category: "Auditorium", images: [img.raniMeyyammai1, img.raniMeyyammai2] },
+  { title: "Ambedkar Institute of Technology - Port Blair", category: "Auditorium", images: [img.ambedkarPortBlair1, img.ambedkarPortBlair2, img.ambedkarPortBlair3] },
+  { title: "Triple Helix", category: "Auditorium", images: [img.tripleHelix1, img.tripleHelix2, img.tripleHelix3, img.tripleHelix4] },
+  { title: "University of Hyderabad", category: "Auditorium", images: [img.universityOfHyderabad1, img.universityOfHyderabad2] },
+  { title: "Women's Christian College", category: "Auditorium", images: [img.womensChristianCollege1, img.womensChristianCollege2] },
+
+  // Hotels
+  { title: "Taj Conemera", location: "Chennai, Tamil Nadu", category: "Hotels", images: [img.tajConemera] },
+  { title: "UPIDI INTERNATIONAL", location: "Nagerkovil, Tamil Nadu", category: "Hotels", images: [img.upidiNagerkovil1, img.upidiNagerkovil2, img.upidiNagerkovil3, img.upidiNagerkovil4] },
+  { title: "TTDC Rameswaram", location: "Rameswaram, Tamil Nadu", size: "6.33 acres", siteArea: "6.33 acres", description: "Situated 28 metres from the sea on a 6.33-acre Rameswaram site, this new coastal hotel replaces an old structure, offering 24 accommodations including 22 deluxe rooms and 2 suite rooms.", category: "Hotels", images: [img.ttdcRameswaram1, img.ttdcRameswaram2] },
+
+  // Retail
+  { title: "The Collage", location: "Chennai, Tamil Nadu", description: "A retail space set in an Art-Deco bungalow in the charming neighbourhood of Rutland Gate, Chennai. The bungalow retains the essence of old Madras in its yesteryear, while the interior design carries undertones of European pre-war industrial architecture.", category: "Retail", images: [img.theCollage1, img.theCollage2, img.theCollage3] },
+];
+
+export const categoryImage: Record<ProjectCategory, string> = {
+  "Sports": img.sports,
+  Industrial: img.industry,
+  "Process Plants": img.process,
+  Transportation: img.transport,
+  "Private Residences": img.residence,
+  "Residential": img.township,
+  Institutions: img.institution,
+  "Commercial & IT buildings": img.office,
+  "Interiors": img.interiors,
+  "Auditorium": img.auditorium,
+  "Hotels": img.ttdcRameswaram1,
+  "Retail": img.theCollage1,
+};
+
+// Placeholder galleries: until per-project photography is supplied, a project
+// falls back to its category image followed by two related sector images.
+// Add an `images` array on a raw entry to override this for that project.
+const categoryGallery: Record<ProjectCategory, string[]> = {
+  "Sports": [img.sports, img.auditorium, img.institution],
+  Industrial: [img.industry, img.process, img.office],
+  "Process Plants": [img.process, img.industry, img.transport],
+  Transportation: [img.transport, img.industry, img.commercial],
+  "Private Residences": [img.residence, img.interiors, img.township],
+  "Residential": [img.township, img.residence, img.commercial],
+  Institutions: [img.institution, img.auditorium, img.sports],
+  "Commercial & IT buildings": [img.office, img.commercial, img.interiors],
+  "Interiors": [img.interiors, img.bank, img.office],
+  "Auditorium": [img.auditorium, img.institution, img.interiors],
+  "Hotels": [img.ttdcRameswaram1, img.ttdcRameswaram2],
+  "Retail": [img.theCollage1, img.theCollage2, img.theCollage3],
+};
+
+const seen = new Map<string, number>();
+
+export const projects: Project[] = raw.map((p) => {
+  const base = slugify(`${p.title}-${p.location ?? ""}`);
+  const count = seen.get(base) ?? 0;
+  seen.set(base, count + 1);
+  const slug = count === 0 ? base : `${base}-${count}`;
+  const images = p.images?.length ? p.images : categoryGallery[p.category];
+  return { ...p, slug, image: images[0] ?? categoryImage[p.category], images };
+});
+
+export const featuredProjects = projects.filter((p) => p.featured);
+
+// Alphabetical; the projects page renders these as filters after "All".
+export const categories: ProjectCategory[] = [
+  "Auditorium",
+  "Commercial & IT buildings",
+  "Hotels",
+  "Industrial",
+  "Institutions",
+  "Interiors",
+  "Private Residences",
+  "Process Plants",
+  "Residential",
+  "Retail",
+  "Sports",
+  "Transportation",
+];
