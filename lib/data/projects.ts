@@ -344,7 +344,7 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
 
   // Auditorium
   { title: "NIOT AUDITORIUM", location: "Chennai, Tamil Nadu", category: "Auditorium", images: [img.niot1, img.niot2, img.niot3] },
-  { title: "Cheyyar Auditorium", size: "5000-seater", category: "Auditorium", images: [img.cheyyar1, img.cheyyar2] },
+  { title: "Cheyyar Auditorium", location: "Chennai, Tamil Nadu", size: "5000-seater", category: "Auditorium", images: [img.cheyyar1, img.cheyyar2] },
   { title: "MCC AUDITORIUM", location: "Chennai, Tamil Nadu", category: "Auditorium", images: [img.mccAuditorium1, img.mccAuditorium2, img.mccAuditorium3] },
   { title: "Rani Meyyammai Raja Muthaiya Halls", category: "Auditorium", images: [img.raniMeyyammai1, img.raniMeyyammai2] },
   { title: "Ambedkar Institute of Technology - Port Blair", category: "Auditorium", images: [img.ambedkarPortBlair1, img.ambedkarPortBlair2, img.ambedkarPortBlair3] },

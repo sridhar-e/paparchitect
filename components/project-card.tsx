@@ -1,6 +1,12 @@
 import Image from "next/image";
 import type { Project } from "@/lib/data/projects";
 
+// A few titles are stored shouting ("NIOT AUDITORIUM"); on the cards they read
+// as "NIOT Auditorium". The popup still shows the title exactly as stored.
+function cardTitle(title: string) {
+  return title.replace(/\bAUDITORIUM\b/g, "Auditorium");
+}
+
 export function ProjectCard({ project }: { project: Project }) {
   // "Location · size" — same line for every card, skipped when neither is set.
   const meta = [project.location, project.size].filter(Boolean).join(" · ");
@@ -22,7 +28,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
       <div className="flex flex-1 flex-col p-5">
         <h3 className="line-clamp-2 font-heading font-semibold text-brand-navy leading-snug">
-          {project.title}
+          {cardTitle(project.title)}
         </h3>
         {meta && (
           <p className="mt-1.5 line-clamp-1 text-sm text-muted-foreground">{meta}</p>
