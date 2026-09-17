@@ -83,14 +83,14 @@ function ProjectDialogBody({ project }: { project: Project }) {
   return (
     <div className="bg-white">
       <div className="px-5 pt-6 sm:px-10 lg:px-14">
-        {/* Header: project name and sector on one line, chip wraps under on narrow screens. */}
+        {/* Header: sector chip then project name on one line, wrapping on narrow screens. */}
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <Dialog.Title className="font-heading text-[25px] font-bold uppercase leading-tight text-brand-gold">
-            {project.title}
-          </Dialog.Title>
           <span className="shrink-0 border border-brand-navy/20 bg-brand-cream px-2.5 py-1 text-xs font-bold uppercase tracking-[0.08em] text-brand-navy">
             {project.category}
           </span>
+          <Dialog.Title className="font-heading text-[25px] font-bold uppercase leading-tight text-brand-gold">
+            {project.title}
+          </Dialog.Title>
         </div>
         {subtitle && <Dialog.Description className="sr-only">{subtitle}</Dialog.Description>}
       </div>
