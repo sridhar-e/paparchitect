@@ -354,7 +354,7 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
 
   // Hotels
   { title: "Taj Conemera", location: "Chennai, Tamil Nadu", category: "Hotels", images: [img.tajConemera] },
-  { title: "UPIDI INTERNATIONAL", location: "Nagerkovil, Tamil Nadu", category: "Hotels", images: [img.upidiNagerkovil1, img.upidiNagerkovil2, img.upidiNagerkovil3, img.upidiNagerkovil4] },
+  { title: "UDUPI INTERNATIONAL", location: "Nagerkovil, Tamil Nadu", category: "Hotels", images: [img.upidiNagerkovil1, img.upidiNagerkovil2, img.upidiNagerkovil3, img.upidiNagerkovil4] },
   { title: "TTDC Rameswaram", location: "Rameswaram, Tamil Nadu", size: "6.33 acres", siteArea: "6.33 acres", description: "Situated 28 metres from the sea on a 6.33-acre Rameswaram site, this new coastal hotel replaces an old structure, offering 24 accommodations including 22 deluxe rooms and 2 suite rooms.", category: "Hotels", images: [img.ttdcRameswaram1, img.ttdcRameswaram2] },
 
   // Retail
