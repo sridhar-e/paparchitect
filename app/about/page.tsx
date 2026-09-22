@@ -77,9 +77,9 @@ export default function AboutPage() {
                 playsInline
                 preload="none"
               />
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-brand-navy-dark/10">
-                <div className="flex size-14 items-center justify-center border border-white/40 bg-brand-navy-dark/60">
-                  <Play className="size-5 fill-white text-white" />
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-brand-sky/10">
+                <div className="flex size-14 items-center justify-center border border-brand-deep/40 bg-brand-sky/80">
+                  <Play className="size-5 fill-brand-deep text-brand-deep" />
                 </div>
               </div>
             </div>
@@ -136,9 +136,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership — faint campus sketch for depth on the solid navy background */}
-      <section className="relative overflow-hidden bg-brand-navy-dark pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-24">
-        <ArchSketchCampus className="absolute -right-10 top-0 h-[220px] w-auto text-white opacity-[0.08] lg:h-[280px]" />
+      {/* Leadership — faint campus sketch for depth on the solid sky background */}
+      <section className="relative overflow-hidden bg-brand-sky pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-24">
+        <ArchSketchCampus className="absolute -right-10 top-0 h-[220px] w-auto text-brand-deep opacity-[0.08] lg:h-[280px]" />
         <div className="container relative px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Leadership" title="Management Team" light align="center" />
           <div className="mt-12 grid gap-2.5 sm:grid-cols-3">

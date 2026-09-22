@@ -9,7 +9,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative isolate border-t-2 border-brand-gold-deep bg-brand-navy-dark text-white">
+    <footer className="relative isolate border-t-2 border-brand-gold-deep bg-brand-sky text-brand-deep">
       {/* From lg up, the intro panel's white ground continues past the divider
           to the very bottom of the footer. Mirrors the grid geometry below so
           the band lines up with that column exactly. */}
@@ -54,13 +54,13 @@ export function SiteFooter() {
 
         <div className="grid gap-10 sm:grid-cols-2 lg:col-span-2">
           <div>
-            <h3 className="text-xs font-bold tracking-[0.18em] uppercase text-brand-gold-light">
+            <h3 className="text-xs font-bold tracking-[0.18em] uppercase text-brand-deep">
               Navigate
             </h3>
             <ul className="mt-5 space-y-3">
               {mainNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
+                  <Link href={item.href} className="text-sm text-brand-deep hover:text-brand-navy transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -69,12 +69,12 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-xs font-bold tracking-[0.18em] uppercase text-brand-gold-light">
+            <h3 className="text-xs font-bold tracking-[0.18em] uppercase text-brand-deep">
               Head Office
             </h3>
-            <ul className="mt-5 space-y-3.5 text-sm text-white/70">
+            <ul className="mt-5 space-y-3.5 text-sm text-brand-deep">
               <li className="flex gap-2.5">
-                <MapPin className="size-4 shrink-0 mt-0.5 text-brand-gold-light" />
+                <MapPin className="size-4 shrink-0 mt-0.5 text-brand-deep" />
                 <span className="flex flex-col">
                   {siteInfo.headOffice.addressLines.map((line) => (
                     <span key={line}>{line}</span>
@@ -82,28 +82,28 @@ export function SiteFooter() {
                 </span>
               </li>
               <li className="flex gap-2.5">
-                <Phone className="size-4 shrink-0 mt-0.5 text-brand-gold-light" />
+                <Phone className="size-4 shrink-0 mt-0.5 text-brand-deep" />
                 <span className="flex flex-col">
                   {siteInfo.landlines.map((number) => (
-                    <a key={number} href={telHref(number)} className="hover:text-white transition-colors">
+                    <a key={number} href={telHref(number)} className="hover:text-brand-navy transition-colors">
                       {number}
                     </a>
                   ))}
                 </span>
               </li>
               <li className="flex gap-2.5">
-                <Smartphone className="size-4 shrink-0 mt-0.5 text-brand-gold-light" />
+                <Smartphone className="size-4 shrink-0 mt-0.5 text-brand-deep" />
                 <span className="flex flex-col">
                   {siteInfo.mobiles.map((number) => (
-                    <a key={number} href={telHref(number)} className="hover:text-white transition-colors">
+                    <a key={number} href={telHref(number)} className="hover:text-brand-navy transition-colors">
                       {number}
                     </a>
                   ))}
                 </span>
               </li>
               <li className="flex gap-2.5">
-                <Mail className="size-4 shrink-0 mt-0.5 text-brand-gold-light" />
-                <a href={`mailto:${siteInfo.email}`} className="hover:text-white transition-colors">
+                <Mail className="size-4 shrink-0 mt-0.5 text-brand-deep" />
+                <a href={`mailto:${siteInfo.email}`} className="hover:text-brand-navy transition-colors">
                   {siteInfo.email}
                 </a>
               </li>
@@ -112,8 +112,8 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="relative border-t border-white/10">
-        <div className="container flex flex-col gap-2 px-4 py-6 text-xs text-[#5c6478] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div className="relative border-t border-brand-deep/15">
+        <div className="container flex flex-col gap-2 px-4 py-6 text-xs text-brand-deep sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           {/* pl-7 lines the notice up with the panel text above it. */}
           <p className="pl-7">© {year} Pithavadian And Partners. All rights reserved.</p>
           <p>Offices: {siteInfo.offices.join(" · ")}</p>

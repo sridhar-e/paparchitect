@@ -50,7 +50,7 @@ export function ServicesGrid() {
             <Reveal key={service.title} delay={(i % 3) * 70}>
               <div className="group h-full bg-card p-7 transition-colors duration-300 hover:bg-white">
                 <div className="flex items-start justify-between">
-                  <div className="flex size-11 items-center justify-center border border-brand-navy bg-brand-navy text-white transition-colors duration-300 group-hover:border-brand-gold-deep group-hover:bg-brand-gold-deep group-hover:text-brand-navy">
+                  <div className="flex size-11 items-center justify-center border border-brand-sky bg-brand-sky text-brand-deep transition-colors duration-300 group-hover:border-brand-gold-deep group-hover:bg-brand-gold-deep group-hover:text-brand-navy">
                     <Icon className="size-5" />
                   </div>
                   <span className="font-heading text-xs font-bold text-muted-foreground/50">
@@ -70,17 +70,17 @@ export function ServicesGrid() {
         <Reveal delay={(specialisations.length % 3) * 70} className="sm:col-span-2 lg:col-span-3">
           <Link
             href="/contact"
-            className="group flex h-full flex-col justify-center gap-3 bg-brand-navy p-7 transition-colors duration-300 hover:bg-brand-navy-light sm:flex-row sm:items-center sm:justify-between"
+            className="group flex h-full flex-col justify-center gap-3 bg-brand-sky p-7 transition-colors duration-300 hover:bg-brand-sky-dark sm:flex-row sm:items-center sm:justify-between"
           >
             <div>
-              <h3 className="font-heading font-semibold text-white">
+              <h3 className="font-heading font-semibold text-brand-deep">
                 Need a capability not listed here?
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/70">
+              <p className="mt-2 text-sm leading-relaxed text-brand-deep">
                 Talk to us about your project — we handle every discipline in-house.
               </p>
             </div>
-            <span className="flex shrink-0 items-center gap-1.5 text-sm font-semibold text-brand-gold-light transition-transform duration-300 group-hover:translate-x-1">
+            <span className="flex shrink-0 items-center gap-1.5 text-sm font-semibold text-brand-deep transition-transform duration-300 group-hover:translate-x-1">
               Get in Touch
               <ArrowRight className="size-4" />
             </span>

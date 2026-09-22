@@ -23,7 +23,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-0 top-0 border border-white/20 bg-brand-navy-dark/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white">
+        <span className="absolute left-0 top-0 border border-brand-deep/20 bg-brand-sky/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand-deep">
           {post.category}
         </span>
       </div>

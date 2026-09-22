@@ -70,7 +70,7 @@ export function SiteHeader() {
           <Button
             render={<Link href="/contact" />}
             nativeButton={false}
-            className="h-11 gap-2 rounded-none bg-brand-navy px-6 text-sm font-semibold text-white hover:bg-brand-navy-light"
+            className="h-11 gap-2 rounded-none bg-brand-sky px-6 text-sm font-semibold text-brand-deep hover:bg-brand-sky-dark"
           >
             Get in Touch
             <ArrowRight className="size-4" />
@@ -109,7 +109,7 @@ export function SiteHeader() {
               <Button
                 render={<Link href="/contact" />}
                 nativeButton={false}
-                className="mt-4 h-12 rounded-none bg-brand-navy text-base text-white hover:bg-brand-navy-light"
+                className="mt-4 h-12 rounded-none bg-brand-sky text-base text-brand-deep hover:bg-brand-sky-dark"
               >
                 Get in Touch
               </Button>

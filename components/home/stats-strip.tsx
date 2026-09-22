@@ -8,7 +8,7 @@ const icons = [Landmark, Building2, MapPin, Layers];
 
 export function StatsStrip() {
   return (
-    <div className="border-y border-white/10 bg-brand-navy-dark">
+    <div className="border-y border-brand-deep/15 bg-brand-sky">
       <div className="container px-4 py-14 sm:px-6 lg:px-8">
         <StatCounters stats={statistics} icons={icons} light />
       </div>

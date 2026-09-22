@@ -41,8 +41,8 @@ export function Timeline() {
         {timeline.map((entry) => (
           <div key={entry.year} className="flex gap-5">
             <div className="flex flex-col items-center">
-              <div className="flex size-9 shrink-0 items-center justify-center border border-brand-navy bg-brand-navy text-white">
-                <div className="size-1.5 bg-brand-gold-light" />
+              <div className="flex size-9 shrink-0 items-center justify-center border border-brand-sky bg-brand-sky text-brand-deep">
+                <div className="size-1.5 bg-brand-deep" />
               </div>
               <div className="mt-1 w-px flex-1 bg-border" />
             </div>

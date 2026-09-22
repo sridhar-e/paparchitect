@@ -74,15 +74,15 @@ export default async function BlogPostPage({
       />
       <div className="relative aspect-[21/9] w-full min-h-[320px]">
         <Image src={post.image} alt={post.title} fill preload className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/95 via-brand-navy-dark/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-sky/95 via-brand-sky/50 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 container px-4 pb-10 sm:px-6 lg:px-8">
-          <span className="inline-block border border-white/20 bg-brand-navy-dark/90 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-white">
+          <span className="inline-block border border-brand-deep/20 bg-brand-sky/90 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand-deep">
             {post.category}
           </span>
-          <h1 className="mt-4 max-w-3xl font-[Tahoma] text-3xl font-bold text-white sm:text-4xl">
+          <h1 className="mt-4 max-w-3xl font-[Tahoma] text-3xl font-bold text-brand-deep sm:text-4xl">
             {post.title}
           </h1>
-          <p className="mt-3 text-sm text-white/70">
+          <p className="mt-3 text-sm text-brand-deep">
             {date} &middot; Pithavadian And Partners
           </p>
         </div>

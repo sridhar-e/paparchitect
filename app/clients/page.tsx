@@ -72,20 +72,20 @@ export default function ClientsPage() {
         </div>
       </Section>
 
-      <Section className="bg-brand-navy-dark">
+      <Section className="bg-brand-sky">
         <SectionHeading
           eyebrow="Heritage"
           title="Landmark Clients"
           description="Across our history we have delivered landmark works for institutions that shaped modern India."
           light
         />
-        <div className="mt-10 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-px border border-brand-deep/15 bg-brand-deep/15 sm:grid-cols-2 lg:grid-cols-3">
           {heritageClients.map((client) => (
             <div
               key={client}
-              className="flex items-center gap-3 bg-brand-navy-dark px-4 py-3.5 text-sm text-white/90"
+              className="flex items-center gap-3 bg-brand-sky px-4 py-3.5 text-sm text-brand-deep"
             >
-              <Landmark className="size-4 shrink-0 text-brand-gold-light" />
+              <Landmark className="size-4 shrink-0 text-brand-deep" />
               {client}
             </div>
           ))}

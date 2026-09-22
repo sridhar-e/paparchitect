@@ -203,7 +203,7 @@ export function ContactForm() {
         <Button
           type="submit"
           disabled={status === "submitting"}
-          className="h-12 w-full gap-2 rounded-none bg-brand-navy px-8 text-base font-semibold text-white hover:bg-brand-navy-light disabled:opacity-70 sm:w-auto"
+          className="h-12 w-full gap-2 rounded-none bg-brand-sky px-8 text-base font-semibold text-brand-deep hover:bg-brand-sky-dark disabled:opacity-70 sm:w-auto"
         >
           {status === "submitting" && <Loader2 className="size-4 animate-spin" />}
           Send Enquiry

@@ -19,7 +19,7 @@ export function FeaturedProjects() {
           render={<Link href="/projects" />}
           nativeButton={false}
           variant="outline"
-          className="h-11 gap-2 rounded-lg border-brand-navy px-6 font-semibold text-brand-navy hover:bg-brand-navy hover:text-white"
+          className="h-11 gap-2 rounded-lg border-brand-navy px-6 font-semibold text-brand-navy hover:bg-brand-sky hover:text-brand-deep hover:border-brand-sky"
         >
           View All Projects
           <ArrowRight className="size-4" />

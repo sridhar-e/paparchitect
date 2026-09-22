@@ -52,11 +52,11 @@ export function SectionHeading({
         <p
           className={cn(
             "flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] mb-4",
-            light ? "text-brand-gold-light" : "text-brand-gold-text",
+            light ? "text-brand-deep" : "text-brand-gold-text",
             align === "center" && "justify-center"
           )}
         >
-          <span className={cn("h-px w-8", light ? "bg-brand-gold-light" : "bg-brand-gold-deep")} />
+          <span className={cn("h-px w-8", light ? "bg-brand-deep" : "bg-brand-gold-deep")} />
           {eyebrow}
         </p>
       )}
@@ -66,13 +66,13 @@ export function SectionHeading({
           nowrap
             ? "whitespace-nowrap text-[clamp(1.25rem,6vw,2.75rem)]"
             : "text-3xl sm:text-4xl lg:text-[2.75rem]",
-          light ? "text-white" : "text-brand-navy"
+          light ? "text-brand-deep" : "text-brand-navy"
         )}
       >
         {title}
       </h2>
       {description && (
-        <p className={cn("mt-5 text-base sm:text-lg leading-relaxed", light ? "text-white/70" : "text-muted-foreground")}>
+        <p className={cn("mt-5 text-base sm:text-lg leading-relaxed", light ? "text-brand-deep" : "text-muted-foreground")}>
           {description}
         </p>
       )}

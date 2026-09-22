@@ -47,7 +47,7 @@ export function Hero() {
               render={<Link href="/contact" />}
               nativeButton={false}
               variant="outline"
-              className="h-12 rounded-none border-brand-navy/25 bg-transparent px-8 text-base font-semibold text-brand-navy hover:bg-brand-navy hover:text-white"
+              className="h-12 rounded-none border-brand-navy/25 bg-transparent px-8 text-base font-semibold text-brand-navy hover:bg-brand-sky hover:text-brand-deep hover:border-brand-sky"
             >
               Get in Touch
             </Button>

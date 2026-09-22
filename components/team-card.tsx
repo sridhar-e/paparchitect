@@ -27,7 +27,7 @@ export function TeamCard({
 
   return (
     <div className="flex h-full flex-col bg-card">
-      <div className="relative aspect-[4/5] overflow-hidden bg-brand-navy">
+      <div className="relative aspect-[4/5] overflow-hidden bg-brand-sky">
         <Image
           src={placeholderImage(name)}
           alt={`${name}, ${role} — placeholder image`}

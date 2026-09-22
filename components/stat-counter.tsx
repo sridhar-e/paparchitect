@@ -76,7 +76,7 @@ export function StatCounters({
     <div
       className={cn(
         "grid grid-cols-2 gap-y-10 sm:grid-cols-4 sm:divide-x",
-        light ? "sm:divide-white/15" : "sm:divide-border"
+        light ? "sm:divide-brand-deep/20" : "sm:divide-border"
       )}
     >
       {stats.map((stat, i) => {
@@ -87,7 +87,7 @@ export function StatCounters({
               <div
                 className={cn(
                   "mb-2 flex size-10 items-center justify-center border",
-                  light ? "border-brand-gold-light/40 text-brand-gold-light" : "border-brand-navy/20 text-brand-navy"
+                  light ? "border-brand-deep/40 text-brand-deep" : "border-brand-navy/20 text-brand-navy"
                 )}
               >
                 <Icon className="size-5" />
@@ -96,12 +96,12 @@ export function StatCounters({
             <div
               className={cn(
                 "font-heading text-4xl font-bold sm:text-5xl",
-                light ? "text-white" : "text-brand-navy"
+                light ? "text-brand-deep" : "text-brand-navy"
               )}
             >
               <AnimatedNumber value={stat.value} />
             </div>
-            <p className={cn("text-sm", light ? "text-white/60" : "text-muted-foreground")}>
+            <p className={cn("text-sm", light ? "text-brand-deep" : "text-muted-foreground")}>
               {stat.label}
             </p>
           </div>
