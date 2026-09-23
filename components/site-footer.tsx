@@ -22,7 +22,9 @@ export function SiteFooter() {
       </div>
 
       <div className="container grid gap-10 px-4 py-16 sm:px-6 lg:grid-cols-4 lg:gap-8 lg:px-8">
-        <div className="-mt-16 bg-white px-7 pt-[92px] pb-7 lg:col-span-2">
+        {/* Below lg the panel bleeds past the container padding, so no blue
+            strip shows down either side of its white ground. */}
+        <div className="-mx-4 -mt-16 bg-white px-7 pt-[92px] pb-7 sm:-mx-6 lg:mx-0 lg:col-span-2">
           <Logo />
           <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
             {siteInfo.footerTagline}

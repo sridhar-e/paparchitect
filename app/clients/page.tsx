@@ -83,7 +83,7 @@ export default function ClientsPage() {
           {heritageClients.map((client) => (
             <div
               key={client}
-              className="flex items-center gap-3 bg-brand-sky px-4 py-3.5 text-sm text-brand-deep"
+              className="flex items-center gap-3 bg-white px-4 py-3.5 text-sm text-brand-deep"
             >
               <Landmark className="size-4 shrink-0 text-brand-deep" />
               {client}
