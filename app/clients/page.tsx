@@ -79,16 +79,35 @@ export default function ClientsPage() {
           description="Across our history we have delivered landmark works for institutions that shaped modern India."
           light
         />
-        <div className="mt-10 grid gap-px border border-brand-deep/15 bg-brand-deep/15 sm:grid-cols-2 lg:grid-cols-3">
-          {heritageClients.map((client) => (
+        {/* White ground on the box itself, with the rules drawn by each cell,
+            so a part-filled last row stays white rather than showing through. */}
+        <div className="mt-10 overflow-hidden border border-brand-deep/15 bg-white">
+          <div className="-mr-px -mb-px grid sm:grid-cols-2 lg:grid-cols-3">
+            {heritageClients.map((client) => (
+              <div
+                key={client}
+                className="flex items-center gap-3 border-r border-b border-brand-deep/15 px-4 py-3.5 text-sm text-brand-deep"
+              >
+                <Landmark className="size-4 shrink-0 text-brand-deep" />
+                {client}
+              </div>
+            ))}
+            {/* Blank cells that square off the last row: one from two columns
+                up, a second from three. The list is 13 long, so both counts
+                come out even. */}
             <div
-              key={client}
-              className="flex items-center gap-3 bg-white px-4 py-3.5 text-sm text-brand-deep"
+              aria-hidden="true"
+              className="hidden border-r border-b border-brand-deep/15 px-4 py-3.5 text-sm sm:block"
             >
-              <Landmark className="size-4 shrink-0 text-brand-deep" />
-              {client}
+              &nbsp;
             </div>
-          ))}
+            <div
+              aria-hidden="true"
+              className="hidden border-r border-b border-brand-deep/15 px-4 py-3.5 text-sm lg:block"
+            >
+              &nbsp;
+            </div>
+          </div>
         </div>
       </Section>
 
