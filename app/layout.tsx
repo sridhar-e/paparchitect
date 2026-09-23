@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/images/hero.jpg",
+        url: "/images/Cover-image-1.jpeg",
         width: 1200,
         height: 630,
         alt: "Pithavadian And Partners, Architects, Planners & Engineers",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pithavadian And Partners | Architects, Planners & Engineers",
     description: siteDescription,
-    images: ["/images/hero.jpg"],
+    images: ["/images/Cover-image-1.jpeg"],
   },
 };
 
@@ -71,7 +71,7 @@ const organizationJsonLd = {
   alternateName: "PNP",
   url: "https://paparchitect.com",
   logo: "https://paparchitect.com/favicon.ico",
-  image: "https://paparchitect.com/images/hero.jpg",
+  image: "https://paparchitect.com/images/Cover-image-1.jpeg",
   description: siteDescription,
   foundingDate: "1919",
   address: {
