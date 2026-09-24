@@ -67,10 +67,25 @@ export function SectorTiles() {
     <section className="relative overflow-hidden bg-brand-sky py-16 sm:py-20 lg:py-24">
       <div className="container relative px-4 sm:px-6 lg:px-8">
         <SectionHeading eyebrow="Where We Build" title="Project Sectors" align="center" light />
-        <div className="mt-14 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {tiles.map(({ sector, Icon }, i) => {
             return (
               <Reveal key={sector} delay={(i % 4) * 60}>
+                {/* Thin gold offset behind each tile, the same device the
+                    Who We Are photo uses. The wider grid gap keeps one tile's
+                    offset clear of its neighbour. */}
+                <div style={{ position: "relative" }}>
+                  <div
+                    aria-hidden="true"
+                    style={{
+                      position: "absolute",
+                      left: "-8px",
+                      bottom: "-8px",
+                      width: "100%",
+                      height: "100%",
+                      background: "var(--brand-gold-deep)",
+                    }}
+                  />
                 <Link
                   href={`/projects?category=${slugify(sector)}`}
                   className="group relative isolate flex aspect-[4/3] items-end overflow-hidden border-2 border-brand-deep/20 bg-brand-sky p-7 transition-colors duration-300 hover:border-brand-gold-deep"
@@ -125,6 +140,7 @@ export function SectorTiles() {
                     </span>
                   </div>
                 </Link>
+                </div>
               </Reveal>
             );
           })}
