@@ -44,6 +44,7 @@ export const leadership = [
   {
     name: "Parthsarthi Dutta Gupta",
     role: "Managing Partner",
+    image: "/images/Managing-Partner-Parthsarthi-Dutta-Gupta.png",
     bio: [
       "B.Arch., REC-Trichy, University of Madras, 1986",
       "Recipient of the AL Mudaliar Award for the design of the International Air Terminal at Madras (1986)",
@@ -57,6 +58,7 @@ export const leadership = [
   {
     name: "N. Balachander",
     role: "Partner",
+    image: "/images/Partner-N-Balachandar.png",
     bio: [
       "B.Arch., SAP-Guindy, University of Madras, 1983",
       "Registered Architect (Council of Architecture)",
@@ -66,6 +68,7 @@ export const leadership = [
   {
     name: "Zacharia George",
     role: "Principal Consulting Engineer (Former Partner, PNP)",
+    image: "/images/Zacharia-George.png",
     bio: [
       "Engineering, Kerala University (1955)",
       "PG, Institute of Higher Studies in Construction, Paris",

@@ -16,10 +16,12 @@ export function TeamCard({
   name,
   role,
   bio,
+  image,
 }: {
   name: string;
   role: string;
   bio: readonly string[];
+  image?: string;
 }) {
   const [expanded, setExpanded] = useState(false);
   const hasMore = bio.length > COLLAPSED_COUNT;
@@ -29,8 +31,8 @@ export function TeamCard({
     <div className="flex h-full flex-col bg-card">
       <div className="relative aspect-[4/5] overflow-hidden bg-brand-sky">
         <Image
-          src={placeholderImage(name)}
-          alt={`${name}, ${role} — placeholder image`}
+          src={image ?? placeholderImage(name)}
+          alt={image ? `${name}, ${role}` : `${name}, ${role} — placeholder image`}
           fill
           sizes="(min-width: 640px) 33vw, 100vw"
           className="object-cover"
