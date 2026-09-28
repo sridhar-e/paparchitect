@@ -14,11 +14,7 @@ export function ProjectsExplorer({ initialCategory }: { initialCategory?: Projec
     const byTitle = (a: Project, b: Project) =>
       a.title.localeCompare(b.title, "en", { sensitivity: "base" });
     if (active !== "All") return projects.filter((p) => p.category === active).sort(byTitle);
-    // "All" runs through the categories in their listed (alphabetical) order,
-    // with each category's projects in alphabetical order by title.
-    return [...projects].sort(
-      (a, b) => categories.indexOf(a.category) - categories.indexOf(b.category) || byTitle(a, b)
-    );
+    return [...projects].sort(byTitle);
   }, [active]);
 
   return (
