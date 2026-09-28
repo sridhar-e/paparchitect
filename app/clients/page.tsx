@@ -65,6 +65,7 @@ export default function ClientsPage() {
                     <ClientBadge
                       key={client}
                       name={client}
+                      evenSize
                       className="w-1/2 border-r border-b border-border sm:w-1/3 md:w-1/4"
                     />
                   ))}

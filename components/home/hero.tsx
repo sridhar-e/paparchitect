@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section className="relative isolate flex min-h-[480px] items-center overflow-hidden bg-white sm:min-h-[560px] lg:min-h-[620px]">
       <Image
-        src="/images/slide-bg.png"
+        src="/images/hero-paparchitect.png"
         alt="Contemporary institutional architecture"
         fill
         preload

@@ -34,10 +34,10 @@ export const siteInfo = {
   headOffice: {
     name: "Head Office",
     address:
-      "New No. 113, Old No. 5, 86th Street, (North) Ashok Nagar, Chennai - 600 083, Tamil Nadu, India",
+      "New No. 113, Old No. 5, 86th Street (North), Ashok Nagar, Chennai - 600 083, Tamil Nadu, India",
     addressLines: [
       "New No. 113, Old No. 5,",
-      "86th Street, (North) Ashok Nagar,",
+      "86th Street (North), Ashok Nagar,",
       "Chennai - 600 083, Tamil Nadu, India",
     ],
   },

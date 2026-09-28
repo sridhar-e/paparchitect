@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { LOGO_BOUNDS } from "@/lib/data/logo-bounds";
 
 const STOPWORDS = new Set(["of", "and", "the", "for", "&"]);
 
@@ -104,16 +105,19 @@ export function ClientBadge({
   className,
   hideLabel = false,
   enlargeSmall = false,
+  evenSize = false,
 }: {
   name: string;
   className?: string;
   hideLabel?: boolean;
   enlargeSmall?: boolean;
+  evenSize?: boolean;
 }) {
   const key = name.trim().toLowerCase();
   const localLogo = LOCAL_LOGOS[key];
   const logoSlug = KNOWN_LOGOS[key];
   const scale = enlargeSmall ? LOGO_SCALE[key] : undefined;
+  const bounds = evenSize && localLogo ? LOGO_BOUNDS[localLogo] : undefined;
 
   return (
     <div
@@ -123,8 +127,34 @@ export function ClientBadge({
       )}
     >
       {/* Every mark gets the same box; object-contain scales it to fit. */}
-      <div className="flex h-10 w-full items-center justify-center sm:h-12">
-        {localLogo ? (
+      <div className="flex h-10 w-full items-center justify-center [--logo-box:2.5rem] sm:h-12 sm:[--logo-box:3rem]">
+        {localLogo && bounds ? (
+          // Crop to the visible mark, then size it by its shape: square marks
+          // fill the box height, wide wordmarks get shorter so they carry
+          // roughly the same visual weight.
+          <div
+            className="relative overflow-hidden"
+            style={{
+              aspectRatio: bounds[4],
+              width: `min(100%, calc(var(--logo-box) * ${Math.min(1, bounds[4] ** -0.4) * bounds[4]}))`,
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={localLogo}
+              alt={hideLabel ? name : ""}
+              aria-hidden={hideLabel ? undefined : true}
+              className="absolute"
+              style={{
+                width: `${100 / bounds[2]}%`,
+                height: `${100 / bounds[3]}%`,
+                left: `${(-bounds[0] / bounds[2]) * 100}%`,
+                top: `${(-bounds[1] / bounds[3]) * 100}%`,
+                maxWidth: "none",
+              }}
+            />
+          </div>
+        ) : localLogo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={localLogo}
