@@ -11,11 +11,13 @@ export function ProjectsExplorer({ initialCategory }: { initialCategory?: Projec
   const [selected, setSelected] = useState<Project | null>(null);
 
   const filtered = useMemo(() => {
-    if (active !== "All") return projects.filter((p) => p.category === active);
+    const byTitle = (a: Project, b: Project) =>
+      a.title.localeCompare(b.title, "en", { sensitivity: "base" });
+    if (active !== "All") return projects.filter((p) => p.category === active).sort(byTitle);
     // "All" runs through the categories in their listed (alphabetical) order,
-    // keeping each category's own sequence intact.
+    // with each category's projects in alphabetical order by title.
     return [...projects].sort(
-      (a, b) => categories.indexOf(a.category) - categories.indexOf(b.category)
+      (a, b) => categories.indexOf(a.category) - categories.indexOf(b.category) || byTitle(a, b)
     );
   }, [active]);
 
