@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Play } from "lucide-react";
+import Image from "next/image";
 import { Section, SectionHeading } from "@/components/section";
 import { CtaBand } from "@/components/cta-band";
 import { Timeline } from "@/components/timeline";
@@ -45,11 +45,11 @@ export default function AboutPage() {
               eyebrow="About"
               title="Pithavadian And Partners"
               nowrap
-              description="A firm of architects, planners and engineers, trusted over 100 years."
+              description="A firm of Architects, Planners and Engineers, trusted over 100 years."
             />
             <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Pithavadian And Partners is a firm of architects, planners and
-              engineers with offices in Chennai, Bengaluru, Chandigarh and
+              Pithavadian And Partners is a firm of Architects, Planners and
+              Engineers with offices in Chennai, Bengaluru, Chandigarh and
               Kochi. The firm offers comprehensive services including
               architecture, interiors, planning, engineering and project
               management for all types of buildings, sites and services
@@ -58,7 +58,7 @@ export default function AboutPage() {
               sector, size and complexity. We believe our focus on service is
               the benchmark of the firm&rsquo;s growth, reflected in the
               long-standing relationships we hold with many of our existing
-              clients.
+              Clients.
             </p>
           </div>
           <div className="relative">
@@ -67,21 +67,14 @@ export default function AboutPage() {
               className="absolute -bottom-4 -left-4 h-full w-full bg-brand-gold-deep sm:-bottom-6 sm:-left-6"
             />
             <div className="relative aspect-[4/3] overflow-hidden border border-border bg-card">
-              <video
-                className="size-full object-cover"
-                src="/videos/about-studio.mp4"
-                poster="/images/who-we-are.jpg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="none"
+              <Image
+                src="/images/About-us-img%20.JPG"
+                alt="Pithavadian And Partners"
+                fill
+                priority
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover"
               />
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-brand-sky/10">
-                <div className="flex size-14 items-center justify-center border border-brand-deep/40 bg-brand-sky/80">
-                  <Play className="size-5 fill-brand-deep text-brand-deep" />
-                </div>
-              </div>
             </div>
           </div>
         </div>

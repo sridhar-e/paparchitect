@@ -76,11 +76,11 @@ export const whyPnp = [
   },
   {
     title: "End-to-End Service",
-    description: "Every discipline handled in-house, concept to handover.",
+    description: "Comprehensive Architecture and Engineering Services under one Roof.",
   },
   {
     title: "Repeat-Order Track Record",
-    description: "The bulk of our work comes from returning clients.",
+    description: "The bulk of our work comes from existing Clients.",
   },
   {
     title: "Pan-India Location",

@@ -18,7 +18,7 @@ const poppins = Poppins({
 });
 
 const siteDescription =
-  "A firm of architects, planners and engineers trusted over 100 years. Architecture, engineering, interiors and turnkey design solutions across India. Offices in Chennai, Bengaluru, Chandigarh & Kochi.";
+  "A firm of Architects, Planners and Engineers trusted over 100 years. Architecture, engineering, interiors and turnkey design solutions across India. Offices in Chennai, Bengaluru, Chandigarh & Kochi.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://paparchitect.com"),

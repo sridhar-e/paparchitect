@@ -57,10 +57,10 @@ export const blogPosts: BlogPost[] = [
     date: "2025-06-18",
     category: "Sustainability",
     excerpt:
-      "Green building design is now a core part of our services — here's what that looks like in practice for industrial and institutional clients.",
+      "Green building design is now a core part of our services — here's what that looks like in practice for industrial and institutional Clients.",
     image: "/images/blog-green-building.jpg",
     body: [
-      "Green building design has moved from a niche request to a standard client expectation, particularly among our industrial and institutional clients. It sits alongside our existing energy audit and building management systems capabilities as part of a broader sustainability offering.",
+      "Green building design has moved from a niche request to a standard Client expectation, particularly among our industrial and institutional Clients. It sits alongside our existing energy audit and building management systems capabilities as part of a broader sustainability offering.",
       "In practice, this means factoring passive design strategies, material selection and energy performance into the earliest design decisions, rather than retrofitting sustainability measures after the design is fixed.",
       "As our Vision states, enlarging our scope of services — including Green Building Consultancy and Landscape Design — is a stated part of the firm's ongoing growth.",
     ],

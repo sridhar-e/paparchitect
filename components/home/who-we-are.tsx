@@ -41,7 +41,7 @@ export function WhoWeAre() {
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Customer satisfaction is our primary goal — and through our
             process of delivery, we establish lasting relationships with our
-            clients. In fact, the bulk of our projects are repeat orders.
+            Clients. In fact, the bulk of our projects are repeat orders.
           </p>
         </div>
       </div>

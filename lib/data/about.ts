@@ -28,15 +28,15 @@ export const timeline = [
 export const purposeVisionGoal = [
   {
     title: "Our Purpose",
-    text: "Pithavadian And Partners is a Design Consultancy Firm delivering excellent-quality solutions to the complete satisfaction of its clients, across all segments and without geographical limitations.",
+    text: "Pithavadian And Partners is a Design Consultancy Firm delivering excellent-quality solutions to the complete satisfaction of its Clients, across all segments and without geographical limitations.",
   },
   {
     title: "Our Vision",
-    text: "To maintain steady growth and, in the process, increase our client base, provide opportunities to quality professionals, and enlarge our scope of services — Green Building Consultancy and Landscape Design among them.",
+    text: "To maintain steady growth and, in the process, increase our Client base, provide opportunities to quality professionals, and enlarge our scope of services — Green Building Consultancy and Landscape Design among them.",
   },
   {
     title: "Our Goal",
-    text: "To ensure the client receives precisely what PNP has been appointed for; in the process, providing value addition, effecting economy through value engineering, and delivering the right solution at the first shot.",
+    text: "To ensure the Client receives precisely what PNP has been appointed for; in the process, providing value addition, effecting economy through value engineering, and delivering the right solution at the first shot.",
   },
 ] as const;
 
@@ -104,7 +104,7 @@ export const faqs = [
   },
   {
     q: "What is your design process like?",
-    a: "Tailored to each project — typically a thorough analysis of site, program requirements and client goals, followed by multiple design concepts refined closely with the client.",
+    a: "Tailored to each project — typically a thorough analysis of site, program requirements and Client goals, followed by multiple design concepts refined closely with the Client.",
   },
   {
     q: "What is your experience with local building codes?",
@@ -112,7 +112,7 @@ export const faqs = [
   },
   {
     q: "Do you assist with statutory approvals?",
-    a: "Yes — we support clients through the process of obtaining statutory approvals.",
+    a: "Yes — we support Clients through the process of obtaining statutory approvals.",
   },
   {
     q: "Which offices do you operate from?",

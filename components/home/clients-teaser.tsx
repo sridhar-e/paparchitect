@@ -23,11 +23,11 @@ function MarqueeRow({
         className={`flex w-max gap-4 ${direction === "left" ? "animate-[marquee-left_32s_linear_infinite]" : "animate-[marquee-right_32s_linear_infinite]"}`}
       >
         {clients.map((client) => (
-          <ClientBadge key={client} name={client} hideLabel className={itemClass} />
+          <ClientBadge key={client} name={client} hideLabel enlargeSmall className={itemClass} />
         ))}
         <div aria-hidden="true" className="flex gap-4">
           {clients.map((client, i) => (
-            <ClientBadge key={`dup-${client}-${i}`} name={client} hideLabel className={itemClass} />
+            <ClientBadge key={`dup-${client}-${i}`} name={client} hideLabel enlargeSmall className={itemClass} />
           ))}
         </div>
       </div>

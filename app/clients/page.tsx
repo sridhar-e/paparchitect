@@ -7,6 +7,9 @@ import { ClientBadge } from "@/components/client-badge";
 import { ArchSketchColonnade } from "@/components/arch-sketch";
 import { clientGroups, heritageClients } from "@/lib/data/clients";
 
+const SM_PAD = (2 - (heritageClients.length % 2)) % 2;
+const LG_PAD = (3 - (heritageClients.length % 3)) % 3;
+
 export const metadata: Metadata = {
   title: "Our Clientele",
   description:
@@ -41,7 +44,7 @@ export default function ClientsPage() {
           <SectionHeading
             eyebrow="Clientele"
             title="Our Clientele"
-            description="Over a century of practice has earned us the trust of India's leading industries, institutions, government bodies and corporates. Many remain repeat clients to this day."
+            description="Over a century of practice has earned us the trust of India's leading industries, institutions, government bodies and corporates. Many remain repeat Clients to this day."
           />
         </div>
       </section>
@@ -92,21 +95,19 @@ export default function ClientsPage() {
                 {client}
               </div>
             ))}
-            {/* Blank cells that square off the last row: one from two columns
-                up, a second from three. The list is 13 long, so both counts
-                come out even. */}
-            <div
-              aria-hidden="true"
-              className="hidden border-r border-b border-brand-deep/15 px-4 py-3.5 text-sm sm:block"
-            >
-              &nbsp;
-            </div>
-            <div
-              aria-hidden="true"
-              className="hidden border-r border-b border-brand-deep/15 px-4 py-3.5 text-sm lg:block"
-            >
-              &nbsp;
-            </div>
+            {/* Blank cells that square off a part-filled last row, counted
+                from the list length for the two- and three-column layouts. */}
+            {Array.from({ length: Math.max(SM_PAD, LG_PAD) }, (_, i) => (
+              <div
+                key={`pad-${i}`}
+                aria-hidden="true"
+                className={`hidden border-r border-b border-brand-deep/15 px-4 py-3.5 text-sm ${
+                  i < SM_PAD ? (i < LG_PAD ? "sm:block" : "sm:block lg:hidden") : "lg:block"
+                }`}
+              >
+                &nbsp;
+              </div>
+            ))}
           </div>
         </div>
       </Section>

@@ -100,6 +100,7 @@ export const heritageClients = [
   "Indian Institute of Science",
   "National Dairy Development Board",
   "Air India",
-  "SPIC Headquarters, Chennai",
+  "SPIC",
   "Indian Overseas Bank Head Office, Chennai",
+  "Indian Airline",
 ] as const;

@@ -39,7 +39,7 @@ const icons: LucideIcon[] = [
 const sectorThumbnail: Partial<Record<(typeof projectSectors)[number], string>> = {
   Auditorium: "/images/NIOT-Auditorium-1.webp",
   Interiors: "/images/YAZAKI-2.webp",
-  "Commercial & IT buildings": "/images/Tidel-Neo-Villupuram-1.webp",
+  "Commercial & IT buildings": "/images/TIDEL-NEO-Vellore-1.webp",
   Institutions: "/images/IIT-Indore-Admin-Block-1.webp",
   Industrial: "/images/OMFED-1.webp",
   Residential: "/images/Appasamy-Bloomingdale-Pammal.webp",

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/section";
 import { BlogCard } from "@/components/blog-card";
@@ -72,10 +71,8 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <div className="relative aspect-[21/9] w-full min-h-[320px]">
-        <Image src={post.image} alt={post.title} fill preload className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-sky/95 via-brand-sky/50 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 container px-4 pb-10 sm:px-6 lg:px-8">
+      <div className="w-full bg-brand-sky">
+        <div className="container px-4 pt-16 pb-10 sm:px-6 sm:pt-20 lg:px-8">
           <span className="inline-block border border-brand-deep/20 bg-brand-sky/90 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand-deep">
             {post.category}
           </span>

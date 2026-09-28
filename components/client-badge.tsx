@@ -77,6 +77,16 @@ const LOCAL_LOGOS: Record<string, string> = {
   "union bank of india": "/images/Commercial-logo-12.webp",
 };
 
+// Logos whose artwork reads small in the shared box (square marks, or files
+// with a lot of built-in padding), scaled up to sit level with the rest.
+const LOGO_SCALE: Record<string, number> = {
+  "ashok leyland": 1.9,
+  siemens: 1.5,
+  "indian bank": 1.5,
+  "tidel park": 1.5,
+  "iit madras": 1.5,
+};
+
 function clientMark(name: string): string {
   const words = name.split(/\s+/).filter(Boolean);
   const acronym = words.find((w) => w.length >= 2 && w.length <= 6 && w === w.toUpperCase());
@@ -93,14 +103,17 @@ export function ClientBadge({
   name,
   className,
   hideLabel = false,
+  enlargeSmall = false,
 }: {
   name: string;
   className?: string;
   hideLabel?: boolean;
+  enlargeSmall?: boolean;
 }) {
   const key = name.trim().toLowerCase();
   const localLogo = LOCAL_LOGOS[key];
   const logoSlug = KNOWN_LOGOS[key];
+  const scale = enlargeSmall ? LOGO_SCALE[key] : undefined;
 
   return (
     <div
@@ -118,6 +131,7 @@ export function ClientBadge({
             alt={hideLabel ? name : ""}
             aria-hidden={hideLabel ? undefined : true}
             className="max-h-full max-w-full object-contain"
+            style={scale ? { transform: `scale(${scale})` } : undefined}
           />
         ) : logoSlug ? (
           // eslint-disable-next-line @next/next/no-img-element

@@ -51,6 +51,7 @@ const img = {
   niot3: "/images/NIOT-Auditorium-3.webp",
   raniMeyyammai1: "/images/Rani-Meyyammai-Raja-Muthaiya-Halls-1.webp",
   raniMeyyammai2: "/images/Rani-Meyyammai-Raja-Muthaiya-Halls-2.webp",
+  raniMeyyammai3: "/images/Rani-meyyammai-hall-3.jpg",
   amman1: "/images/amman-1.webp",
   amman2: "/images/amman-2.webp",
   amman3: "/images/amman-3.webp",
@@ -345,11 +346,11 @@ const raw: (Omit<Project, "slug" | "image" | "images"> & { images?: string[] })[
   { title: "NIOT AUDITORIUM", location: "Chennai, Tamil Nadu", status: "Completed", description: "The auditorium features a well-composed interior with layered ceiling geometry, balanced lighting, acoustic treatments, vibrant finishes, and a functional stage-focused spatial arrangement.", category: "Auditorium", images: [img.niot1, img.niot2, img.niot3] },
   { title: "Cheyyar Auditorium", location: "Chennai, Tamil Nadu", size: "5000-seater", description: "A large structure featuring a low-profile arched roof, panelized exterior with vertical fins, and a vast, column-free interior spanned by an intricate steel space-frame truss.", category: "Auditorium", images: [img.cheyyar1, img.cheyyar2] },
   { title: "MCC AUDITORIUM", location: "Chennai, Tamil Nadu", status: "Completed", description: "A bright multi-story interior atrium featuring tiered blue amphitheater seating, warm wood-finish flooring, a raised semi-circular stage, surrounding balconies, and elegant geometric lattice screens.", category: "Auditorium", images: [img.mccAuditorium1, img.mccAuditorium2, img.mccAuditorium3] },
-  { title: "Rani Meyyammai Raja Muthaiya Halls", description: "Features recessed coffered ceilings with cove lighting, ornamental ceiling medallions with chandeliers, carved structural columns, surrounding mezzanine balconies with balustrades, and decorative textured wall paneling.", category: "Auditorium", images: [img.raniMeyyammai1, img.raniMeyyammai2] },
+  { title: "Rani Meyyammai Raja Muthaiya Halls", location: "Chennai, Tamil Nadu", description: "Features recessed coffered ceilings with cove lighting, ornamental ceiling medallions with chandeliers, carved structural columns, surrounding mezzanine balconies with balustrades, and decorative textured wall paneling.", category: "Auditorium", images: [img.raniMeyyammai1, img.raniMeyyammai2, img.raniMeyyammai3] },
   { title: "Ambedkar Institute of Technology - Port Blair", location: "Port Blair, Andaman", status: "Completed", description: "The auditorium showcases a spacious, tiered layout with balanced seating, acoustic wall treatments, integrated lighting, and a broad stage, emphasizing functionality and visual connectivity.", category: "Auditorium", images: [img.ambedkarPortBlair1, img.ambedkarPortBlair2, img.ambedkarPortBlair3] },
   { title: "Triple Helix", location: "Chennai, Tamil Nadu", status: "Completed", description: "A modern auditorium featuring vibrant red plush seating, red-carpeted aisles, wood-paneled walls, an elevated wooden stage, overhead lighting rigs, and a stylish angled ceiling.", category: "Auditorium", images: [img.tripleHelix1, img.tripleHelix2, img.tripleHelix3, img.tripleHelix4] },
-  { title: "University of Hyderabad", category: "Auditorium", images: [img.universityOfHyderabad1, img.universityOfHyderabad2] },
-  { title: "Women's Christian College", category: "Auditorium", images: [img.womensChristianCollege1, img.womensChristianCollege2] },
+  { title: "University of Hyderabad", location: "Hyderabad", category: "Auditorium", images: [img.universityOfHyderabad1, img.universityOfHyderabad2] },
+  { title: "Women's Christian College", location: "Chennai, Tamil Nadu", category: "Auditorium", images: [img.womensChristianCollege1, img.womensChristianCollege2] },
 
   // Hotels
   { title: "Taj Connemara", location: "Chennai, Tamil Nadu", status: "Completed", description: "A vintage black-and-white photo of Chennai's historic Kasturi Buildings, showcasing symmetrical Art Deco architecture, a grand entrance porch, classic 1940s cars, and surrounding trees.", category: "Hotels", images: [img.tajConemera] },
