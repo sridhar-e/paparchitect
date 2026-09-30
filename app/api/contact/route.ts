@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { appendRow } from "@/lib/google-sheets";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Name is too short").max(100),
@@ -19,6 +20,8 @@ const contactSchema = z.object({
   ]),
   location: z.string().trim().max(150).optional().or(z.literal("")),
   message: z.string().trim().min(10, "Message is too short").max(2000),
+  // full URL of the page the form was submitted from
+  sourcePage: z.string().trim().max(500).optional().or(z.literal("")),
   // honeypot field — real users never fill this
   company: z.string().max(0).optional().or(z.literal("")),
 });
@@ -43,9 +46,22 @@ export async function POST(request: Request) {
   }
 
   const { name, email, phone, projectType, location, message } = parsed.data;
+  // Fall back to the Referer header if the client didn't send the page.
+  const sourcePage = parsed.data.sourcePage || request.headers.get("referer") || "";
 
-  // TODO: wire to real delivery (Resend / SMTP / CRM). Logged for now.
-  console.log("New enquiry received:", { name, email, phone, projectType, location, message });
+  const submittedAt = new Date().toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    dateStyle: "medium",
+    timeStyle: "medium",
+  });
+
+  // Column order must match the header row in the sheet.
+  try {
+    await appendRow([submittedAt, name, email, phone, projectType, location ?? "", message, sourcePage]);
+  } catch (error) {
+    console.error("Failed to store enquiry in Google Sheets:", error);
+    return NextResponse.json({ error: "Could not submit enquiry" }, { status: 500 });
+  }
 
   return NextResponse.json({ ok: true });
 }
